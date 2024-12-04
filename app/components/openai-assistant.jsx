@@ -14,7 +14,7 @@ import remarkGfm from 'remark-gfm';
 import HealthcareSelector from './HealthcareSelector';
 
 export default function OpenAIAssistant({
-  assistantId = 'asst_t7GuIOqWsYXxVBlIpXH5D29e',
+  assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
   userInput,
   setUserInput,
 }) {

@@ -362,7 +362,7 @@ export default function HomePage() {
       {/* <HealthcareSelector handleSelectQuestion={handleSelectQuestion} /> */}
       <div className="w-[97%] flex items-center justify-center rounded-lg">
         <OpenAIAssistant
-          assistantId="asst_lN3WJdIcU0N7s3tq27Gouykr"
+          assistantId="asst_rp7mKcsIJsmKzQETXUIaO3yU"
           userInput={userInput}
           setUserInput={setUserInput}
         />
