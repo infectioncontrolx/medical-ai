@@ -269,6 +269,7 @@ export default function HomePage() {
     ud: 'Healthcare Sponsor',
     bn: 'Healthcare Sponsor',
     hn: 'Healthcare Sponsor',
+    ks: 'Healthcare Sponsor',
     tr: 'Healthcare Sponsor',
     fr: 'Healthcare Sponsor',
     bm: 'Healthcare Sponsor',

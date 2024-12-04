@@ -3,7 +3,6 @@
 // import feedbackImg from '@/public/OIP.jpeg';
 import feedbackImg from '@/public/oip-green.png';
 
-import logoImg from '@/public/waaw2021.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -78,12 +77,11 @@ export default function Header() {
         Professionals
       </h1>
 
-      <div className="px-4 w-full">
-        <div className="p-3 w-full flex justify-evenly flex-row items-center">
+      <div className="px-4 w-full flex justify-center items-center">
+        {/* <div className="p-3 w-full flex justify-evenly flex-row items-center">
           <Image
             src={logoImg}
-            // height={400}
-            // width={400}
+
             height={120}
             width={120}
             alt="logo"
@@ -92,20 +90,21 @@ export default function Header() {
             priority
           />
           <h1 className=" leading-7 my-1 text-red-500 px-2 font-bold text-lg text-center">
-            {/* {appTitle[currentLanguage]} */}
+
             WAAW 2024 Special Edition
           </h1>
-          <div className="cursor-pointer " onClick={() => setModelOpened(true)}>
-            <Image
-              src={feedbackImg}
-              height={35}
-              width={35}
-              alt="logo"
-              className={`min-w-[40px] w-[45px] sm:w-[60px]  hover:scale-110 transition-transform
+
+        </div> */}
+        <div className="cursor-pointer " onClick={() => setModelOpened(true)}>
+          <Image
+            src={feedbackImg}
+            height={35}
+            width={35}
+            alt="logo"
+            className={`min-w-[40px] w-[45px] sm:w-[60px]  hover:scale-110 transition-transform
             ${isAnimating ? 'animate-[bounce_1s_ease-in-out_15]' : ''}`}
-              priority
-            />
-          </div>
+            priority
+          />
         </div>
       </div>
 
