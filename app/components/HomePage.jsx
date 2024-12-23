@@ -1,6 +1,5 @@
 'use client';
 
-import TransitionSliderLogo from '@/components/Slider/TransitionSliderLogo';
 import { experimental_useAssistant as useAssistant } from 'ai/react';
 import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
@@ -34,16 +33,16 @@ export default function HomePage() {
 
   const [activeAnswer, setActiveAnswer] = useState({});
 
-//   useEffect(() => {
-//     // setLoading(false)
-//     const hasRendered = localStorage.getItem('feedBackForInit');
-//     if (!hasRendered) {
-//       setTimeout(() => {
-//         setModelOpened(true);
-//         localStorage.setItem('feedBackForInit', true); //Set flag
-//       }, 50000);
-//     }
-//   }, []);
+  //   useEffect(() => {
+  //     // setLoading(false)
+  //     const hasRendered = localStorage.getItem('feedBackForInit');
+  //     if (!hasRendered) {
+  //       setTimeout(() => {
+  //         setModelOpened(true);
+  //         localStorage.setItem('feedBackForInit', true); //Set flag
+  //       }, 50000);
+  //     }
+  //   }, []);
 
   useEffect(() => {
     const type = searchParams.get('type');
@@ -321,7 +320,9 @@ export default function HomePage() {
   const handleSelectQuestion = (prompt) => {
     console.log({ prompt });
   };
-  {console.log("i am from 🤦‍♂️ => ", activeAnswer?.answer)}
+  {
+    console.log('i am from 🤦‍♂️ => ', activeAnswer?.answer);
+  }
   return (
     <div className=" flex flex-col w-full h-auto items-center mt-2 overflow-hidden ">
       {/* <div className="navigate flex items-center flex-wrap justify-center gap-4 my-10  w-full sm:text-sm  ">
@@ -362,14 +363,14 @@ export default function HomePage() {
       {/* <HealthcareSelector handleSelectQuestion={handleSelectQuestion} /> */}
       <div className="w-[97%] flex items-center justify-center rounded-lg">
         <OpenAIAssistant
-          assistantId="asst_lN3WJdIcU0N7s3tq27Gouykr"
+          assistantId="asst_rp7mKcsIJsmKzQETXUIaO3yU"
           userInput={userInput}
           setUserInput={setUserInput}
         />
       </div>
       <div
         ref={activeAnswerRef}
-        className="w-4/5 px-4 mt-3 bg-[#F0F4F9] rounded-lg"
+        className="w-4/5 px-4 mt-1 bg-[#F0F4F9] rounded-lg"
       >
         {activeAnswer?.question && (
           <div className="w-4/5 py-4 bg-[#F0F4F9] rounded-lg ">
@@ -408,33 +409,10 @@ export default function HomePage() {
           </div>
         )}
       </div>
-      {/* <div className="bg-red-400 py-4 text-center px-3 rounded-md flex items-center justify-center mb-4 mx-6 -mt-12">
-        <p className="text-lg font-bold text-white pt-1">
-          {medical[currentLanguage]}&nbsp;
-          {(currentLanguage === 'ar' || currentLanguage === 'en') && (
-            <a href="tel:937" className="text-white underline">
-              937
-            </a>
-          )}
-        </p>
-      </div> */}
-      {/* <div className="relative border-2 border-[#085F63] rounded-lg px-6 pb-6 mx-4 my-12 text-center shadow w-[96%] lg:w-[97%]">
+
+      {/* <div className="w-[96%] lg:w-[97%] relative border-2 border-[#1d3b70] rounded-lg px-6 mx-4 text-center shadow my-4">
         <div className="absolute -top-4 inset-x-0 flex justify-center">
-          <span className="bg-white text-[#085F63] px-4 text-2xl font-bold">
-            {logoText[currentLanguage]}
-          </span>
-        </div>
-        <div className="flex justify-center mt-6">
-          <img
-            src="/bottom-logo.jpg"
-            alt="Sponsor Logos"
-            className="max-w-full h-auto opacity-0"
-          />
-        </div>
-      </div> */}
-      <div className="w-[96%] lg:w-[97%] relative border-2 border-[#1d3b70] rounded-lg px-6 mx-4 text-center shadow my-4">
-        <div className="absolute -top-4 inset-x-0 flex justify-center">
-          <span className="bg-white text-[#00b0e0] px-4 text-2xl font-bold">
+          <span className="bg-white text-[#0CAFB8] px-4 text-2xl font-bold">
             {sponsorText[currentLanguage]}
           </span>
         </div>
@@ -442,7 +420,7 @@ export default function HomePage() {
         <div className="w-full">
           <TransitionSliderLogo />
         </div>
-      </div>
+      </div> */}
 
       <FeedBackModal setIsOpen={setModelOpened} isOpen={modelOpened} />
     </div>

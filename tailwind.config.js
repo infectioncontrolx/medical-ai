@@ -59,6 +59,7 @@ const config = {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
         josefin: ['Josefin Sans'],
+        varela: ['Varela Round', 'sans-serif'],
         noto: ['Noto Serif', 'serif'],
         roboto: ['Roboto', 'sans-serif'],
         notoArabic: ['Noto Naskh Arabic', 'serif'],

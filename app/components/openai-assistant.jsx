@@ -7,17 +7,14 @@ import Image from 'next/image';
 import { AssistantStream } from 'openai/lib/AssistantStream';
 import { useEffect, useRef, useState } from 'react';
 import { AiOutlineRobot, AiOutlineUser } from 'react-icons/ai';
-import MarkdownRenderer from 'react-markdown-renderer';
+import ReactMarkdown from 'react-markdown';
 import { useSelector } from 'react-redux';
-import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw'
 import HealthcareSelector from './HealthcareSelector';
 
-
-
 export default function OpenAIAssistant({
-  assistantId = 'asst_t7GuIOqWsYXxVBlIpXH5D29e',
+  assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
   userInput,
   setUserInput,
 }) {
@@ -4697,7 +4694,7 @@ export default function OpenAIAssistant({
   async function handleSubmitOpenAi(e, propmts) {
     e.preventDefault();
 
-    console.log("prompts", propmts);
+    console.log('prompts', propmts);
 
     // API.post('/api/chat', { inputText: userInput || propmts?.description, lang: currentLanguage });
     if (suggesstions?.length) return;
@@ -4753,12 +4750,12 @@ export default function OpenAIAssistant({
     });
 
     runner.on('messageDone', (message) => {
-    //   console.log(message, 'messagemessagemessage');
-    // get final message content
-    const finalContent =
-    message.content[0].type == 'text' ? message.content[0].text.value : '';
-    
-    // add assistant message to list of messages
+      //   console.log(message, 'messagemessagemessage');
+      // get final message content
+      const finalContent =
+        message.content[0].type == 'text' ? message.content[0].text.value : '';
+
+      // add assistant message to list of messages
       messageId.current++;
       setMessages((prevMessages) => [
         ...prevMessages,
@@ -4769,10 +4766,14 @@ export default function OpenAIAssistant({
           content: finalContent,
           createdAt: new Date(),
         },
-    ]);
-    if(finalContent){
-        API.post('/api/chat', {responseText: finalContent, inputText: userInput || propmts?.description, lang: currentLanguage });
-    }
+      ]);
+      if (finalContent) {
+        API.post('/api/chat', {
+          responseText: finalContent,
+          inputText: userInput || propmts?.description,
+          lang: currentLanguage,
+        });
+      }
       console.log('messagemessagemessage', finalContent);
 
       // remove busy indicator
@@ -4784,11 +4785,10 @@ export default function OpenAIAssistant({
     });
   }
 
-  
   const handleSelectQuestion = (e, prompt) => {
     // setUserInput(prompt?.description);
     handleSubmitOpenAi(e, prompt);
-  }
+  };
 
   // handles changes to the prompt input field
   function handlePromptChange(e) {
@@ -4819,132 +4819,134 @@ export default function OpenAIAssistant({
     currentLanguage === 'ud' ||
     currentLanguage === 'fs';
 
-    return (
-        <>
-    <div
-      className="flex flex-col items-center relative w-full"
-      dir={isRtl ? 'rtl' : 'ltr'}
-    >
-      <HealthcareSelector handleSelectQuestion={(e, prompt)=>handleSelectQuestion(e, prompt)} />
-      {messages.map((m) => (
-        <OpenAIAssistantMessage key={m.id} message={m} />
-      ))}
-      {isLoading && <OpenAIAssistantMessage message={streamingMessage} />}
-
-      <form
-        onSubmit={handleSubmitOpenAi}
-        className={`py-3 md:py-4 h-fit ring-1 ring-gray-200 outline-none focus:ring-[#1d3b70] bg-white rounded-[10px] flex items-center justify-center  w-full ${
-          isRtl ? 'pr-2 pl-11' : 'pl-2 pr-11'
-        }`}
+  return (
+    <>
+      <div
+        className="flex flex-col items-center relative w-full"
+        dir={isRtl ? 'rtl' : 'ltr'}
       >
-        <textarea
-          autoFocus
-          className={`max-h-[60px] resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#1d3b70] bg-white rounded-[10px] w-full `}
-          onChange={handlePromptChange}
-          value={
-            answer?.question
-              ? decodeURIComponent(answer?.question[currentLanguage])
-              : typeof userInput == 'object'
-              ? decodeURIComponent(userInput[currentLanguage])
-              : decodeURIComponent(userInput)
-          }
-          placeholder={decodeURIComponent(placeholder[currentLanguage]) || ''}
+        <HealthcareSelector
+          handleSelectQuestion={(e, prompt) => handleSelectQuestion(e, prompt)}
         />
+        {messages.map((m) => (
+          <OpenAIAssistantMessage key={m.id} message={m} />
+        ))}
+        {isLoading && <OpenAIAssistantMessage message={streamingMessage} />}
 
-        {isLoading ? (
-          <button
-            className={`absolute ml-2 order-1 bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-              isRtl ? 'left-1' : 'right-1'
-            }`}
-          >
-            <OpenAISpinner />
-          </button>
-        ) : (
-          <button
-            disabled={suggesstions?.length > 0 ? true : false}
-            className={`absolute ${isRtl ? 'left-1' : 'right-1'}`}
-          >
-            <Image
-              src={'/Send _icon.svg'}
-              alt="search"
-              width={30}
-              height={30}
-              className="h-10 w-10"
-            />
-          </button>
-        )}
-      </form>
-
-      <div className="w-full">
-        <div
-          className={`flex flex-col w-full items-center py-4 ${
-            isRtl ? 'flex-row-reverse' : ''
+        <form
+          onSubmit={handleSubmitOpenAi}
+          className={`py-3 md:py-4 h-fit ring-1 ring-gray-200 outline-none focus:ring-[#1d3b70] bg-white rounded-[10px] flex items-center justify-center  w-full ${
+            isRtl ? 'pr-2 pl-11' : 'pl-2 pr-11'
           }`}
         >
-          <div className="w-full my-4 flex items-center justify-center  ">
-            {userInput && (
-              <ul
-                className={`${
-                  suggestionLinks
-                    ? ' mx-4   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4   '
-                    : 'hidden'
-                }`}
-              >
-                {suggesstions.length > 0 &&
-                  suggesstions.map((suggestion, i) => (
-                    <li
-                      key={i}
-                      onClick={() => {
-                        setUserInput(
-                          decodeURIComponent(
-                            suggestion?.question[currentLanguage]
-                          )
-                        );
-                        setSuggestionLinks(false);
+          <textarea
+            autoFocus
+            className={`max-h-[60px] resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#1d3b70] bg-white rounded-[10px] w-full `}
+            onChange={handlePromptChange}
+            value={
+              answer?.question
+                ? decodeURIComponent(answer?.question[currentLanguage])
+                : typeof userInput == 'object'
+                ? decodeURIComponent(userInput[currentLanguage])
+                : decodeURIComponent(userInput)
+            }
+            placeholder={decodeURIComponent(placeholder[currentLanguage]) || ''}
+          />
 
-                        handleAnswerGet(suggestion);
-                      }}
-                      className="border-2 border-teal-400 text-center rounded-lg py-2 sm:text-sm leading-6  text-md shadow-md px-2 bg-white cursor-pointer "
-                    >
-                      {decodeURIComponent(
-                        suggestion?.question[currentLanguage]
-                      )}
-                    </li>
-                  ))}
-              </ul>
-            )}
-          </div>
+          {isLoading ? (
+            <button
+              className={`absolute ml-2 order-1 bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+                isRtl ? 'left-1' : 'right-1'
+              }`}
+            >
+              <OpenAISpinner />
+            </button>
+          ) : (
+            <button
+              disabled={suggesstions?.length > 0 ? true : false}
+              className={`absolute ${isRtl ? 'left-1' : 'right-1'}`}
+            >
+              <Image
+                src={'/Send _icon.svg'}
+                alt="search"
+                width={30}
+                height={30}
+                className="h-10 w-10"
+              />
+            </button>
+          )}
+        </form>
+
+        <div className="w-full">
           <div
-            className={`answer w-4/5 rounded-lg relative bg-[#F0F4F9] p-4 ${
-              answerBox ? 'block' : 'hidden'
+            className={`flex flex-col w-full items-center py-4 ${
+              isRtl ? 'flex-row-reverse' : ''
             }`}
           >
-            <span
-              className=" h-6 flex items-center justify-center w-6 absolute  text-black font-bold  right-1 top-1  bg-white  rounded-full cursor-pointer "
-              onClick={hanleCloseClick}
-            >
-              x
-            </span>
-            <p className="bg-teal-600 w-fit  px-4 py-3 md:font-semibold right-2 text-white  mb-8 rounded-lg">
-              {answer?.question
-                ? decodeURIComponent(answer?.question[currentLanguage])
-                : decodeURIComponent(userInput)}
-            </p>
-            
-            <div className="bg-white rounded-lg sm:text-sm p-4 flex items-center gap-6">
-              {answer?.answer && (
-                <ReactTyped
-                  strings={[
-                    decodeURIComponent(answer?.answer[currentLanguage]),
-                  ]}
-                  typeSpeed={10}
-                />
+            <div className="w-full my-4 flex items-center justify-center  ">
+              {userInput && (
+                <ul
+                  className={`${
+                    suggestionLinks
+                      ? ' mx-4   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4   '
+                      : 'hidden'
+                  }`}
+                >
+                  {suggesstions.length > 0 &&
+                    suggesstions.map((suggestion, i) => (
+                      <li
+                        key={i}
+                        onClick={() => {
+                          setUserInput(
+                            decodeURIComponent(
+                              suggestion?.question[currentLanguage]
+                            )
+                          );
+                          setSuggestionLinks(false);
+
+                          handleAnswerGet(suggestion);
+                        }}
+                        className="border-2 border-teal-400 text-center rounded-lg py-2 sm:text-sm leading-6  text-md shadow-md px-2 bg-white cursor-pointer "
+                      >
+                        {decodeURIComponent(
+                          suggestion?.question[currentLanguage]
+                        )}
+                      </li>
+                    ))}
+                </ul>
               )}
+            </div>
+            <div
+              className={`answer w-4/5 rounded-lg relative bg-[#F0F4F9] p-4 ${
+                answerBox ? 'block' : 'hidden'
+              }`}
+            >
+              <span
+                className=" h-6 flex items-center justify-center w-6 absolute  text-black font-bold  right-1 top-1  bg-white  rounded-full cursor-pointer "
+                onClick={hanleCloseClick}
+              >
+                x
+              </span>
+              <p className="bg-teal-600 w-fit  px-4 py-3 md:font-semibold right-2 text-white  mb-8 rounded-lg">
+                {answer?.question
+                  ? decodeURIComponent(answer?.question[currentLanguage])
+                  : decodeURIComponent(userInput)}
+              </p>
+
+              <div className="bg-white rounded-lg sm:text-sm p-4 flex items-center gap-6">
+                {answer?.answer && (
+                  <ReactTyped
+                    strings={[
+                      decodeURIComponent(answer?.answer[currentLanguage]),
+                    ]}
+                    typeSpeed={10}
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 }
@@ -4974,7 +4976,7 @@ export function OpenAIAssistantMessage({ message }) {
       <div
         className={`mx-4 ${
           message.role == 'user'
-            ? ' bg-[#00b0e0] text-white w-fit px-2 py-2 rounded-md'
+            ? ' bg-[#0CAFB8] text-white w-fit px-2 py-2 rounded-md'
             : ' text-black leading-7'
         } ${
           isRtl ? 'text-right' : 'text-left'
@@ -4982,64 +4984,72 @@ export function OpenAIAssistantMessage({ message }) {
       >
         {/* {console.log(message?.content)} */}
         <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw]}
-  components={{
-    ol: ({children, depth = 0}) => (
-      <ol className={`list-decimal pl-6 my-2 space-y-2 ${depth > 0 ? 'ml-4' : ''}`}>
-        {children}
-      </ol>
-    ),
-    ul: ({children, depth = 0}) => (
-      <ul className={`list-disc pl-6 my-2 space-y-2 ${depth > 0 ? 'ml-4' : ''}`}>
-        {children}
-      </ul>
-    ),
-    li: ({children}) => (
-      <li className="leading-relaxed">
-        {children}
-      </li>
-    )
-  }}
-//         components={{
-//     ol: ({children}) => (
-//       <ol className="list-decimal pl-6 space-y-2 my-4">
-//         {children}
-//       </ol>
-//     ),
-//     li: ({children}) => (
-//       <li className="leading-relaxed">
-//         {children}
-//       </li>
-//     )
-//   }}
-// components={{
-//           // Style unordered lists
-//           ul: ({depth = 0, children}) => (
-//             <ul className={`list-disc pl-6 my-2 space-y-2 ${depth > 0 ? 'ml-4' : ''}`}>
-//               {children}
-//             </ul>
-//           ),
-//           // Style list items
-//           li: ({children, ordered}) => (
-//             <li className="leading-relaxed">
-//               {children}
-//             </li>
-//           ),
-//           // Style paragraphs
-//           p: ({children}) => (
-//             <p className="my-1">
-//               {children}
-//             </p>
-//           ),
-//           // Style strong/bold text
-//           strong: ({children}) => (
-//             <strong className="font-bold">
-//               {children}
-//             </strong>
-//           )
-//         }}
-        >{message?.content}</ReactMarkdown>
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
+          components={{
+            ol: ({ children, depth = 0 }) => (
+              <ol
+                className={`list-decimal pl-6 my-2 space-y-2 ${
+                  depth > 0 ? 'ml-4' : ''
+                }`}
+              >
+                {children}
+              </ol>
+            ),
+            ul: ({ children, depth = 0 }) => (
+              <ul
+                className={`list-disc pl-6 my-2 space-y-2 ${
+                  depth > 0 ? 'ml-4' : ''
+                }`}
+              >
+                {children}
+              </ul>
+            ),
+            li: ({ children }) => (
+              <li className="leading-relaxed">{children}</li>
+            ),
+          }}
+          //         components={{
+          //     ol: ({children}) => (
+          //       <ol className="list-decimal pl-6 space-y-2 my-4">
+          //         {children}
+          //       </ol>
+          //     ),
+          //     li: ({children}) => (
+          //       <li className="leading-relaxed">
+          //         {children}
+          //       </li>
+          //     )
+          //   }}
+          // components={{
+          //           // Style unordered lists
+          //           ul: ({depth = 0, children}) => (
+          //             <ul className={`list-disc pl-6 my-2 space-y-2 ${depth > 0 ? 'ml-4' : ''}`}>
+          //               {children}
+          //             </ul>
+          //           ),
+          //           // Style list items
+          //           li: ({children, ordered}) => (
+          //             <li className="leading-relaxed">
+          //               {children}
+          //             </li>
+          //           ),
+          //           // Style paragraphs
+          //           p: ({children}) => (
+          //             <p className="my-1">
+          //               {children}
+          //             </p>
+          //           ),
+          //           // Style strong/bold text
+          //           strong: ({children}) => (
+          //             <strong className="font-bold">
+          //               {children}
+          //             </strong>
+          //           )
+          //         }}
+        >
+          {message?.content}
+        </ReactMarkdown>
         {/* {console.log('I am from answer', )} */}
         {/* <MarkdownRenderer markdown={message?message?.content.content} /> */}
         {/* <Markdown remarkPlugins={[remarkGfm]}>
