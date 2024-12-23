@@ -20,14 +20,12 @@ export default function Suggestions({ questions }) {
   questions.forEach((element) => {
     questionsToAsk.push(element.question);
   });
-  console.log(questionsToAsk);
   const inputRef = useRef(null);
   useEffect(() => {
     if (status === "awaiting_message") {
       inputRef.current?.focus();
     }
   }, [status]);
-  console.log(status);
 
   function filterSuggestions(input, allQuestions) {
     if (!allQuestions) {
@@ -42,8 +40,6 @@ export default function Suggestions({ questions }) {
 
     setSuggestions(filtered);
   }, [userInput]);
-  console.log(suggesstions);
-  console.log(messages);
   const handleSubmit = (e) => {
     e.preventDefault();
 
