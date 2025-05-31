@@ -48,10 +48,6 @@ const data2 = [
     title: 'POWERED AIR PURIFYING RESPIRATOR (PAPR)',
     link: '',
   },
-  {
-    title: 'Candida Auris Screening Procedure',
-    link: '',
-  },
 ];
 
 const HealthcareSelector = ({ handleSelectQuestion }) => {
