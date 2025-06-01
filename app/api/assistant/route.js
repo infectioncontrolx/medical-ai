@@ -33,7 +33,7 @@ export async function POST(req) {
   const createdMessage = await openai.beta.threads.messages.create(threadId, {
     role: "user",
     content: input.message
-
+    
   });
 
   return experimental_AssistantResponse(
@@ -46,6 +46,7 @@ export async function POST(req) {
           (() => {
             throw new Error("ASSISTANT_ID is not set");
           })(),
+          instructions: "Please do not give any reference. example (links, source, etc..)"
           
       });
            
