@@ -58,10 +58,10 @@ export default function Header() {
           <Link href="/">
             <Image
               src="/logo-new.png"
-              height={120}
-              width={120}
+              height={100}
+              width={100}
               alt="IPC Expert logo"
-              className="mt-4 mb-2 w-44"
+              className="mt-4 mb-2 w-40"
               priority
             />
           </Link>
@@ -71,7 +71,7 @@ export default function Header() {
             src="/mhc-logo.png"
             alt="Makkah Health Cluster logo"
             width={200}
-            height={100}
+            height={200}
             className="max-w-full h-auto"
             priority
           />
