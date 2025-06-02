@@ -22,31 +22,31 @@ const data1 = [
 const data2 = [
   {
     title: 'HAND HYGIENE (HH)',
-    link: '',
+    link: 'https://drive.google.com/file/d/1NFyjj8nnHRXp7GtM6qMb5xBUoBRBU6JC/view?usp=sharing',
   },
   {
     title: 'PERSONAL PROTECTIVE EQUIPMENT (PPE)',
-    link: '',
+    link: 'https://drive.google.com/file/d/1ZHD6si_HJe1ay6BQHbcDKibadN069gtT/view?usp=sharing',
   },
   {
     title: 'BIOLOGICAL SPILL MANAGEMENT',
-    link: '',
+    link: 'https://drive.google.com/file/d/1_FvRAByQY7FgvDQDK6e4EvYkZptzShY0/view?usp=sharing',
   },
   {
     title: 'SHARP INJURIES / NEEDLE STICK INJURIES (NSI) MANAGEMENT',
-    link: '',
+    link: 'https://drive.google.com/file/d/1CRr87aBcfFPzeL73NsAksrZ3nPudpXbF/view?usp=sharing',
   },
   {
     title: 'TRANSMISSION BASED PRECAUTIONS',
-    link: '',
+    link: 'https://drive.google.com/file/d/1cXrm-WUlvIrMsIT9I7rGA3iTs8QIaj-n/view?usp=sharing',
   },
   {
     title: 'RESPIRATOR FIT TEST',
-    link: '',
+    link: 'https://drive.google.com/file/d/1YLsgI9q6hJoVYpqeOcZX8EvACdZ-b_Yu/view?usp=sharing',
   },
   {
     title: 'POWERED AIR PURIFYING RESPIRATOR (PAPR)',
-    link: '',
+    link: 'https://drive.google.com/file/d/11cjZUWe8lTi1SpircKU70IR6gJ11e2G5/view?usp=sharing',
   },
 ];
 
