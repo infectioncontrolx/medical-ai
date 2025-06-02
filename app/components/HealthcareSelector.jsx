@@ -7,15 +7,15 @@ import GuidancePopup from './GuidancePopup';
 const data1 = [
   {
     title: 'ICA for Permenant Hospitals',
-    link: '',
+    link: 'https://drive.google.com/file/d/1A9t5jAzY38yX8iHpYjIUQt2xxHVcxMhP/view?usp=sharing',
   },
   {
     title: 'CEBAHI for Permanent Hospitals.',
-    link: '',
+    link: 'https://drive.google.com/file/d/19lFhgqHPi3rj7MbBTskJhVyVC_P0Qyq2/view?usp=sharing',
   },
   {
     title: 'CEBAHI for Seasonal Hospitals',
-    link: '',
+    link: 'https://drive.google.com/file/d/1iOjZYgvHOp8C5CJUCKwIHx9_nR42pIvA/view?usp=sharing',
   },
 ];
 

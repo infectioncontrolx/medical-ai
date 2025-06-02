@@ -409,7 +409,7 @@ export default function HomePage() {
         )}
       </div>
 
-      <div className="relative border-2 border-green-600 rounded-lg px-6 pb-6 mx-4 my-12 text-center shadow">
+      {/* <div className="relative border-2 border-green-600 rounded-lg px-6 pb-6 mx-4 my-12 text-center shadow">
         <div className="absolute -top-4 inset-x-0 flex justify-center">
           <span className="bg-white px-4 text-2xl font-bold">
             {logoText[currentLanguage]}
@@ -422,7 +422,7 @@ export default function HomePage() {
             className="max-w-full h-auto"
           />
         </div>
-      </div>
+      </div> */}
       {/* <div className="w-[96%] lg:w-[97%] relative border-2 border-[#1d3b70] rounded-lg px-6 mx-4 text-center shadow my-4">
         <div className="absolute -top-4 inset-x-0 flex justify-center">
           <span className="bg-white text-[#0CAFB8] px-4 text-2xl font-bold">
