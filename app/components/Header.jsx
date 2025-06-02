@@ -61,7 +61,7 @@ export default function Header() {
               height={100}
               width={100}
               alt="IPC Expert logo"
-              className="mt-4 mb-2 w-40"
+              className="mt-4 mb-2 w-32"
               priority
             />
           </Link>
