@@ -52,7 +52,7 @@ export async function POST(request) {
     if (!bodyData?.lang) {
       bodyData.lang = 'en';
     }
-    console.log('me from body data', bodyData);
+    
     let data = await ChatList.create(bodyData);
     if (!data) {
       return NextResponse.json(

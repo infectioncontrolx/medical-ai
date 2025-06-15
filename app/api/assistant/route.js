@@ -46,9 +46,13 @@ export async function POST(req) {
           (() => {
             throw new Error("ASSISTANT_ID is not set");
           })(),
-          instructions: "Please do not give any reference. example (links, source, etc..)"
+        //   instructions: "Please do not give any reference. example (links, source, etc..)"
+        // instructions: "Answer without any citations, references, or source attributions. Do not include bracketed text referencing documents, PDFs, or files. Do not use footnotes, superscript numbers, or any form of source indication. Provide only clean, direct answers without mentioning document names or page numbers."
+        instructions: "Remove all citation markers from your response. Do not use 【】 brackets or any reference numbers. Answer in plain text only without mentioning sources, documents, or pages. Treat this as a conversation where you provide information directly without academic citations."
           
       });
+
+      console.log({run})
            
       async function waitForRun(run) {
         // Poll for status change
@@ -56,7 +60,7 @@ export async function POST(req) {
           // delay for 500ms:
           await new Promise((resolve) => setTimeout(resolve, 500));
 
-          run = await openai.beta.threads.runs.retrieve(threadId, run.id);
+          run = await openai.beta.threads.runs.retrieve(threadId, run.id,);
         }
 
         // Check the run status
