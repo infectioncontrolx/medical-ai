@@ -52,31 +52,36 @@ export default function Header() {
   }
 
   return (
-    <div className=" shadow-sm flex gap-2 relative flex-col  pb-4  items-center bg-white">
-      <div className="flex items-center justify-center w-full ">
-        <Link
-          href="/"
-          // className="w-[50%] "
-        >
+    <div className=" shadow-sm flex gap-2 relative flex-col  pb-4  items-center bg-white ">
+      <div className="flex justify-between items-center w-full px-4">
+        <div className="flex-shrink-0">
+          <Link href="/">
+            <Image
+              src="/logo-new.png"
+              height={100}
+              width={100}
+              alt="IPC Expert logo"
+              className="mt-4 mb-2 w-32"
+              priority
+            />
+          </Link>
+        </div>
+        <div className="flex-shrink-0">
           <Image
-            src="/logo-new.png"
-            // height={400}
-            // width={400}
-            height={120}
-            width={120}
-            alt="logo"
-            // className=" mt-4 mb-2 w-full "
-            className=" mt-4 mb-2 w-44"
+            src="/mhc-logo.png"
+            alt="Makkah Health Cluster logo"
+            width={200}
+            height={200}
+            className="max-w-full h-auto"
             priority
           />
-        </Link>
+        </div>
       </div>
       <h1 className=" leading-7 sm:leading-8 my-1 text-[#0CAFB8] px-2 font-bold break-words text-lg text-center max-w-[99%] mx-auto">
         {/* {appTitle[currentLanguage]} */}
         AI Assistant for Infection Prevention & Control for Healthcare
         Professionals
       </h1>
-
       <div className="px-4 w-full flex justify-center items-center">
         {/* <div className="p-3 w-full flex justify-evenly flex-row items-center">
           <Image
@@ -107,7 +112,6 @@ export default function Header() {
           />
         </div>
       </div>
-
       <FeedBackModal setIsOpen={setModelOpened} isOpen={modelOpened} />
     </div>
   );

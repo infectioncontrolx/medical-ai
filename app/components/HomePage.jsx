@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { ReactTyped } from 'react-typed';
 import remarkGfm from 'remark-gfm';
 import FeedBackModal from './FeedBackModal';
+
 const OpenAIAssistant = dynamic(() => import('./openai-assistant'), {
   ssr: false, // This ensures the component is only rendered on the client side
 });
@@ -320,7 +321,7 @@ export default function HomePage() {
   const handleSelectQuestion = (prompt) => {
     console.log({ prompt });
   };
-  
+
   return (
     <div className=" flex flex-col w-full h-auto items-center mt-2 overflow-hidden ">
       {/* <div className="navigate flex items-center flex-wrap justify-center gap-4 my-10  w-full sm:text-sm  ">
@@ -408,6 +409,20 @@ export default function HomePage() {
         )}
       </div>
 
+      {/* <div className="relative border-2 border-green-600 rounded-lg px-6 pb-6 mx-4 my-12 text-center shadow">
+        <div className="absolute -top-4 inset-x-0 flex justify-center">
+          <span className="bg-white px-4 text-2xl font-bold">
+            {logoText[currentLanguage]}
+          </span>
+        </div>
+        <div className="flex justify-center mt-6">
+          <img
+            src="/mhc-logo.png"
+            alt="Sponsor Logos"
+            className="max-w-full h-auto"
+          />
+        </div>
+      </div> */}
       {/* <div className="w-[96%] lg:w-[97%] relative border-2 border-[#1d3b70] rounded-lg px-6 mx-4 text-center shadow my-4">
         <div className="absolute -top-4 inset-x-0 flex justify-center">
           <span className="bg-white text-[#0CAFB8] px-4 text-2xl font-bold">
@@ -419,6 +434,8 @@ export default function HomePage() {
           <TransitionSliderLogo />
         </div>
       </div> */}
+
+      {/* <SponsorLogo /> */}
 
       <FeedBackModal setIsOpen={setModelOpened} isOpen={modelOpened} />
     </div>
