@@ -2,8 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import GuidancePopup from './GuidancePopup';
 import Feedbacks from './Feedbacks';
+import GuidancePopup from './GuidancePopup';
 
 const data1 = [
   {
@@ -57,42 +57,42 @@ const data2 = [
     {
       id: 1,
       title: "Standards & Requirements for IC in Healthcare",
-      backgroundColor: "#2E5BBA", // Blue
+      backgroundColor: "#24468d", // Blue
       link: "/standards-requirements",
       description: "Comprehensive guidelines and standards for infection control in healthcare settings"
     },
     {
       id: 2,
       title: "Basic IC License BICSL",
-      backgroundColor: "#0CAFB8", // Teal
+      backgroundColor: "#31bfc0", // Teal
       link: "/basic-ic-license",
       description: "Basic Infection Control Skills License certification program"
     },
     {
       id: 3,
       title: "National IPC Guidelines",
-      backgroundColor: "#1B8A8A", // Dark Teal
+      backgroundColor: "#10798f", // Dark Teal
       link: "/national-ipc-guidelines",
       description: "National infection prevention and control guidelines"
     },
     {
       id: 4,
       title: "HATs Surveillance & Outbreak",
-      backgroundColor: "#4CAF50", // Green
+      backgroundColor: "#48b558", // Green
       link: "/hats-surveillance",
       description: "Healthcare-associated infections tracking and outbreak management"
     },
     {
       id: 5,
       title: "International IPC Guidelines",
-      backgroundColor: "#2196F3", // Light Blue
+      backgroundColor: "#1a94d3", // Light Blue
       link: "/international-ipc-guidelines",
       description: "International infection prevention and control standards"
     },
     {
       id: 6,
       title: "Contacts & Posters",
-      backgroundColor: "#8BC34A", // Light Green
+      backgroundColor: "#93c951", // Light Green
       link: "/contacts-posters",
       description: "Contact information and educational materials"
     }
@@ -155,13 +155,13 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
             hover:shadow-lg
             ${
               selectedCard === prompt.id
-                ? 'bg-blue-50 border-[#0CAFB8]'
+                ? 'bg-blue-50 border-[#2ca9e0]'
                 : 'bg-white hover:bg-gray-50 border-gray-200'
             }
           `}
             >
               <div className="">
-                <p className="text-md font-semibold text-center text-[#0CAFB8] cursor-pointer">
+                <p className="text-md font-semibold text-center text-[#2ca9e0] cursor-pointer">
                   {prompt.description}
                 </p>
               </div>
@@ -174,7 +174,7 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
             rounded-lg border p-6
             cursor-pointer
             transition-all duration-200
-            hover:shadow-lg bg-[#0CAFB8]
+            hover:shadow-lg bg-[#2ca9e0]
             flex
             items-center
           `}
@@ -190,7 +190,7 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
             className={`
             rounded-lg border p-6
             transition-all duration-200
-            hover:shadow-lg bg-[#0CAFB8]
+            hover:shadow-lg bg-[#2ca9e0]
             flex
             items-center
           `}

@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 import { ReactTyped } from 'react-typed';
 import remarkGfm from 'remark-gfm';
 import FeedBackModal from './FeedBackModal';
-import bgImage from '@/public/pattern.png'
 
 const OpenAIAssistant = dynamic(() => import('./openai-assistant'), {
   ssr: false, // This ensures the component is only rendered on the client side
@@ -426,7 +425,7 @@ export default function HomePage() {
       </div> */}
       {/* <div className="w-[96%] lg:w-[97%] relative border-2 border-[#1d3b70] rounded-lg px-6 mx-4 text-center shadow my-4">
         <div className="absolute -top-4 inset-x-0 flex justify-center">
-          <span className="bg-white text-[#0CAFB8] px-4 text-2xl font-bold">
+          <span className="bg-white text-[#2ca9e0] px-4 text-2xl font-bold">
             {sponsorText[currentLanguage]}
           </span>
         </div>

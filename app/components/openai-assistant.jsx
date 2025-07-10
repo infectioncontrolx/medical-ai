@@ -3,6 +3,7 @@
 import { ReactTyped } from 'react-typed';
 
 import API from '@/lib/instance/instance';
+import bgImage from '@/public/pattern.png';
 import Image from 'next/image';
 import { AssistantStream } from 'openai/lib/AssistantStream';
 import { useEffect, useRef, useState } from 'react';
@@ -12,7 +13,6 @@ import { useSelector } from 'react-redux';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import HealthcareSelector from './HealthcareSelector';
-import bgImage from '@/public/pattern.png'
 
 export default function OpenAIAssistant({
   assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
@@ -4847,8 +4847,8 @@ export default function OpenAIAssistant({
             className={`
               flex-1 py-3 px-6 rounded-xl font-semibold
               ${selectedOption === 'hospitals' 
-                ? 'bg-[#0CAFB8] text-white ' 
-                : 'bg-[#0CAFB8] text-white'
+                ? 'bg-[#2ca9e0] text-white ' 
+                : 'bg-[#2ca9e0] text-white'
               }
             `}
           >
@@ -4860,8 +4860,8 @@ export default function OpenAIAssistant({
             className={`
               flex-1 py-3 px-6 rounded-xl font-semibold
               ${selectedOption === 'phc' 
-                ? 'bg-[#0CAFB8] text-white ' 
-                : 'bg-[#0CAFB8] text-white'
+                ? 'bg-[#2ca9e0] text-white ' 
+                : 'bg-[#2ca9e0] text-white'
               }
             `}
           >
@@ -4876,14 +4876,14 @@ export default function OpenAIAssistant({
 
         <form
           onSubmit={handleSubmitOpenAi}
-          className={`py-3 md:py-4 h-fit ring-1 ring-gray-200 outline-none focus:ring-[#1d3b70] bg-white rounded-[10px] flex items-center justify-center  w-full ${
+          className={`py-3 md:py-4 h-fit ring-1 ring-[#2ca9e0] outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] flex items-center justify-center  w-full ${
             isRtl ? 'pr-2 pl-11' : 'pl-2 pr-11'
           }`}
         >
           <textarea
             disabled={!selectedOption}
             autoFocus
-            className={`max-h-[60px] resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#1d3b70] bg-white rounded-[10px] w-full `}
+            className={`max-h-[60px] resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] w-full `}
             onChange={handlePromptChange}
             value={
               answer?.question
@@ -4897,7 +4897,7 @@ export default function OpenAIAssistant({
 
           {isLoading ? (
             <button
-              className={`absolute ml-2 order-1 bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+              className={`absolute ml-2 order-1 bg-[#2ca9e0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
                 isRtl ? 'left-1' : 'right-1'
               }`}
             >
@@ -4948,7 +4948,7 @@ export default function OpenAIAssistant({
 
                           handleAnswerGet(suggestion);
                         }}
-                        className="border-2 border-teal-400 text-center rounded-lg py-2 sm:text-sm leading-6  text-md shadow-md px-2 bg-white cursor-pointer "
+                        className="border-2 border-[#2ca9e0] text-center rounded-lg py-2 sm:text-sm leading-6  text-md shadow-md px-2 bg-white cursor-pointer "
                       >
                         {decodeURIComponent(
                           suggestion?.question[currentLanguage]
@@ -5022,7 +5022,7 @@ export function OpenAIAssistantMessage({ message }) {
       <div
         className={`mx-4 ${
           message.role == 'user'
-            ? ' bg-[#0CAFB8] text-white w-fit px-2 py-2 rounded-md'
+            ? ' bg-[#2ca9e0] text-white w-fit px-2 py-2 rounded-md'
             : ' text-black leading-7'
         } ${
           isRtl ? 'text-right' : 'text-left'

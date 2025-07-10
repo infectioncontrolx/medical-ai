@@ -55,18 +55,18 @@ export default function Footer() {
     ud: 'جملہ حقوق محفوظ ہیں۔️',
   };
   return (
-    <div className="w-full pb-2 pt-2   border-t-2  border-[#0CAFB8] h-fit ">
+    <div className="w-full pb-2 pt-2   border-t-2  border-[#0a5c64] h-fit ">
       <div className="flex justify-between px-4 gap-2 items-center w-full  ">
         <div className=" ">
           <Image src={'/footer.png'} alt="diaf" width={60} height={60} />
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
-          <div className="flex self-end items-center gap-4 text-[11px] font-semibold tracking-normal text-[#0CAFB8]">
+          <div className="flex self-end items-center gap-4 text-[11px] font-semibold tracking-normal text-[#a2a0a5]">
             <Link href="/about">{footerItems[currentLanguage]?.about}</Link>
             <Link href="/privacy">{footerItems[currentLanguage]?.privacy}</Link>
             <Link href="/terms">{footerItems[currentLanguage]?.terms}</Link>
           </div>
-          <p className="text-[#0CAFB8] text-[11px] text-center py-1">
+          <p className="text-[#a2a0a5] text-[11px] text-center py-1">
             {copyRights[currentLanguage]}
             {new Date().getFullYear()} ©
           </p>

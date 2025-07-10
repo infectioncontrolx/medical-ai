@@ -1,7 +1,6 @@
 'use client';
 
 // import feedbackImg from '@/public/OIP.jpeg';
-import feedbackImg from '@/public/oip-green.png';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +8,6 @@ import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import FeedBackModal from './FeedBackModal';
 
 export default function Header() {
   const [isAnimating, setIsAnimating] = useState(true);
@@ -77,7 +75,7 @@ export default function Header() {
           />
         </div>
       </div>
-      <h1 className=" leading-7 sm:leading-8 my-1 text-[#0CAFB8] px-2 font-bold break-words text-lg text-center max-w-[99%] mx-auto">
+      <h1 className=" leading-7 sm:leading-8 my-1 text-[#2ca9e0] px-2 font-bold break-words text-lg text-center max-w-[99%] mx-auto">
         {/* {appTitle[currentLanguage]} */}
         AI Assistant for Infection Prevention & Control for Healthcare
         Professionals
