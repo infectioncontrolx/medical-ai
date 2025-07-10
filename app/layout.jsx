@@ -17,6 +17,9 @@ import { UserLocationContext } from './context/UserLocationContext';
 import Feedbacks from './components/Feedbacks';
 const inter = Inter({ subsets: ['latin'], preload: true, display: 'swap' });
 
+import bgImage from '@/public/pattern.png'
+
+
 export default function RootLayout({ children }) {
     const pathName = usePathname();
 
@@ -86,7 +89,7 @@ export default function RootLayout({ children }) {
                                         </div>
                                     }
                                 >
-                                    <div className="flex-grow">{children}</div>
+                                    <div className="flex-grow"  style={{background: `url(${bgImage.src})`, backgroundPosition: "bottom", backgroundRepeat: "no-repeat", backgroundSize: 'contain'}}>{children}</div>
                                 </Suspense>
                                 {/* {pathName !== '/medical' && <Feedbacks />} */}
                                 {/* Conditionally render the footer */}

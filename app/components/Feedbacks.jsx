@@ -29,7 +29,7 @@ export default function Feedbacks() {
   }
 
   return (
-    <div className=" flex gap-2 relative flex-col mt-6 pb-4  items-center bg-white ">
+    <div className=" flex gap-2 relative flex-col mt-6 pb-4  items-center">
       
       <div className="px-4 w-full flex justify-center items-center">
         <div className="cursor-pointer " onClick={() => setModelOpened(true)}>
@@ -38,8 +38,7 @@ export default function Feedbacks() {
             height={35}
             width={35}
             alt="logo"
-            className={`w-[140px]  hover:scale-110 transition-transform
-            ${isAnimating ? 'animate-[bounce_1s_ease-in-out_15]' : ''}`}
+            className={`w-[140px] `}
             priority
           />
         </div>

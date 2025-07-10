@@ -324,7 +324,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className=" flex flex-col bg-no-repeat bg-center bg border-2  w-full h-auto items-center mt-2 overflow-hidden  min-h-[500px]" style={{background: `url(${bgImage})`}}>
+    <div className=" flex flex-col bg-no-repeat bg-contain  bg-bottom w-full items-center mt-2 overflow-hidden  min-h-[500px] h-full">
       {/* <div className="navigate flex items-center flex-wrap justify-center gap-4 my-10  w-full sm:text-sm  ">
         <Link href="/medical" className="">
           <button className=" bg-[#085f61] flex gap-2 justify-between  px-2 rounded-lg  text-[14px] text-white font-semibold py-2">

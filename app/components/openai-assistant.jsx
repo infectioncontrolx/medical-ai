@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import HealthcareSelector from './HealthcareSelector';
+import bgImage from '@/public/pattern.png'
 
 export default function OpenAIAssistant({
   assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
@@ -4684,6 +4685,8 @@ export default function OpenAIAssistant({
     setSuggestions([]);
   };
 
+  console.log("bg images", bgImage)
+
   const hanleCloseClick = () => {
     setAnswerBox(false);
     setAnswer({});
@@ -4829,8 +4832,9 @@ export default function OpenAIAssistant({
   return (
     <>
       <div
-        className="flex flex-col items-center relative w-full"
+        className="flex flex-col items-center relative w-full bg-transparent"
         dir={isRtl ? 'rtl' : 'ltr'}
+        // style={{background: `url(${bgImage.src})`}}
       >
         {/* <HealthcareSelector
           handleSelectQuestion={(e, prompt) => handleSelectQuestion(e, prompt)}
@@ -4901,7 +4905,7 @@ export default function OpenAIAssistant({
             </button>
           ) : (
             <button
-              disabled={suggesstions?.length > 0 ? true : false}
+              disabled={suggesstions?.length || !selectedOption}
               className={`absolute ${isRtl ? 'left-1' : 'right-1'}`}
             >
               <Image
