@@ -100,7 +100,7 @@ export default function Header() {
           </h1>
 
         </div> */}
-        <div className="cursor-pointer " onClick={() => setModelOpened(true)}>
+        {/* <div className="cursor-pointer " onClick={() => setModelOpened(true)}>
           <Image
             src={feedbackImg}
             height={35}
@@ -110,9 +110,9 @@ export default function Header() {
             ${isAnimating ? 'animate-[bounce_1s_ease-in-out_15]' : ''}`}
             priority
           />
-        </div>
+        </div> */}
       </div>
-      <FeedBackModal setIsOpen={setModelOpened} isOpen={modelOpened} />
+      {/* <FeedBackModal setIsOpen={setModelOpened} isOpen={modelOpened} /> */}
     </div>
   );
 }

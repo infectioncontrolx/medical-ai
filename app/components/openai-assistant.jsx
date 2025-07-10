@@ -59,6 +59,13 @@ export default function OpenAIAssistant({
   const [answer, setAnswer] = useState({});
   const [answerBox, setAnswerBox] = useState(false);
   const [predefinedQuestions, setPredefinedQuestions] = useState([]);
+    const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+    // Clear input when switching options
+    setInputValue('');
+  };
 
   const getQuestions = async () => {
     // await fetch("api/questions")
@@ -4825,9 +4832,39 @@ export default function OpenAIAssistant({
         className="flex flex-col items-center relative w-full"
         dir={isRtl ? 'rtl' : 'ltr'}
       >
-        <HealthcareSelector
+        {/* <HealthcareSelector
           handleSelectQuestion={(e, prompt) => handleSelectQuestion(e, prompt)}
-        />
+        /> */}
+
+        {/* Toggle Buttons */}
+        <div className="flex space-x-4 my-8">
+          <button
+            onClick={() => handleOptionSelect('hospitals')}
+            className={`
+              flex-1 py-3 px-6 rounded-xl font-semibold
+              ${selectedOption === 'hospitals' 
+                ? 'bg-[#0CAFB8] text-white ' 
+                : 'bg-[#0CAFB8] text-white'
+              }
+            `}
+          >
+            Hospitals
+          </button>
+          
+          <button
+            onClick={() => handleOptionSelect('phc')}
+            className={`
+              flex-1 py-3 px-6 rounded-xl font-semibold
+              ${selectedOption === 'phc' 
+                ? 'bg-[#0CAFB8] text-white ' 
+                : 'bg-[#0CAFB8] text-white'
+              }
+            `}
+          >
+            PHC
+          </button>
+        </div>
+
         {messages.map((m) => (
           <OpenAIAssistantMessage key={m.id} message={m} />
         ))}
@@ -4840,6 +4877,7 @@ export default function OpenAIAssistant({
           }`}
         >
           <textarea
+            disabled={!selectedOption}
             autoFocus
             className={`max-h-[60px] resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#1d3b70] bg-white rounded-[10px] w-full `}
             onChange={handlePromptChange}
@@ -4946,6 +4984,10 @@ export default function OpenAIAssistant({
             </div>
           </div>
         </div>
+
+          <HealthcareSelector
+          handleSelectQuestion={(e, prompt) => handleSelectQuestion(e, prompt)}
+        />
       </div>
     </>
   );

@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import GuidancePopup from './GuidancePopup';
+import Feedbacks from './Feedbacks';
 
 const data1 = [
   {
@@ -49,6 +50,53 @@ const data2 = [
     link: 'https://drive.google.com/file/d/11cjZUWe8lTi1SpircKU70IR6gJ11e2G5/view?usp=sharing',
   },
 ];
+
+
+
+  const cardData = [
+    {
+      id: 1,
+      title: "Standards & Requirements for IC in Healthcare",
+      backgroundColor: "#2E5BBA", // Blue
+      link: "/standards-requirements",
+      description: "Comprehensive guidelines and standards for infection control in healthcare settings"
+    },
+    {
+      id: 2,
+      title: "Basic IC License BICSL",
+      backgroundColor: "#0CAFB8", // Teal
+      link: "/basic-ic-license",
+      description: "Basic Infection Control Skills License certification program"
+    },
+    {
+      id: 3,
+      title: "National IPC Guidelines",
+      backgroundColor: "#1B8A8A", // Dark Teal
+      link: "/national-ipc-guidelines",
+      description: "National infection prevention and control guidelines"
+    },
+    {
+      id: 4,
+      title: "HATs Surveillance & Outbreak",
+      backgroundColor: "#4CAF50", // Green
+      link: "/hats-surveillance",
+      description: "Healthcare-associated infections tracking and outbreak management"
+    },
+    {
+      id: 5,
+      title: "International IPC Guidelines",
+      backgroundColor: "#2196F3", // Light Blue
+      link: "/international-ipc-guidelines",
+      description: "International infection prevention and control standards"
+    },
+    {
+      id: 6,
+      title: "Contacts & Posters",
+      backgroundColor: "#8BC34A", // Light Green
+      link: "/contacts-posters",
+      description: "Contact information and educational materials"
+    }
+  ];
 
 const HealthcareSelector = ({ handleSelectQuestion }) => {
   const router = useRouter();
@@ -120,7 +168,7 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
             </div>
           ))} */}
 
-          <div
+          {/* <div
             onClick={(e) => handleModalOpened(data1)}
             className={`
             rounded-lg border p-6
@@ -153,8 +201,27 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
                 Basic Infection Control Skills Liscence
               </p>
             </div>
-          </div>
+          </div> */}
+
+
+          {cardData.map((card) => (
+            <div
+              key={card.id}
+              className="rounded-lg border cursor-pointer p-4 min-h-24 flex justify-center items-center"
+              style={{ backgroundColor: card.backgroundColor }}
+              onClick={() => handleCardClick(card)}
+            >
+              <div className="space-y-3">
+                <h3 className="text-base md:text-lg text-white font-semibold text-center leading-tight">
+                  {card.title}
+                </h3>
+              </div>
+            </div>
+          ))}
+          
         </div>
+
+        <Feedbacks />
       </div>
       <GuidancePopup
         data={selectedGuidance}

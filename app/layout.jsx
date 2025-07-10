@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import { SelectedBusinessContext } from './context/SelectedBusinessContext';
 import { UserLocationContext } from './context/UserLocationContext';
-
+import Feedbacks from './components/Feedbacks';
 const inter = Inter({ subsets: ['latin'], preload: true, display: 'swap' });
 
 export default function RootLayout({ children }) {
@@ -88,6 +88,7 @@ export default function RootLayout({ children }) {
                                 >
                                     <div className="flex-grow">{children}</div>
                                 </Suspense>
+                                {/* {pathName !== '/medical' && <Feedbacks />} */}
                                 {/* Conditionally render the footer */}
                                 {pathName !== '/medical' && (
                                     <Footer className="mt-auto w-full fixed bottom-0" />
