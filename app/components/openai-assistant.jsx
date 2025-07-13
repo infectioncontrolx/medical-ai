@@ -54,6 +54,21 @@ export default function OpenAIAssistant({
     ks: 'Andika swali lako...',
     fa: 'سوال خود را تایپ کنید',
   };
+  const disabledPlaceholder = {
+  en: 'Select an option to continue',
+  bn: 'চালাতে একটি অপশন বেছে নিন',
+  ar: 'تابع باختيار خيار',
+  bm: 'Pilih satu untuk teruskan',
+  ud: 'آگے بڑھنے کے لیے انتخاب کریں',
+  fr: 'Choisissez pour continuer',
+  in: 'Pilih untuk lanjut',
+  tr: 'Devam için seçin',
+  hn: 'जारी रखने के लिए चुनें',
+  ks: 'Chagua ili kuendelea',
+  fa: 'برای ادامه انتخاب کنید',
+};
+
+
   const [suggesstions, setSuggestions] = useState([]);
 
   const [suggestionLinks, setSuggestionLinks] = useState(true);
@@ -4832,7 +4847,7 @@ export default function OpenAIAssistant({
   return (
     <>
       <div
-        className="flex flex-col items-center relative w-full bg-transparent"
+        className="flex flex-col items-center relative w-full px-12 md:px-0 bg-transparent"
         dir={isRtl ? 'rtl' : 'ltr'}
         // style={{background: `url(${bgImage.src})`}}
       >
@@ -4841,11 +4856,11 @@ export default function OpenAIAssistant({
         /> */}
 
         {/* Toggle Buttons */}
-        <div className="flex space-x-4 my-8">
+        <div className="flex space-x-10 my-4">
           <button
             onClick={() => handleOptionSelect('hospitals')}
             className={`
-              flex-1 py-3 px-6 rounded-xl font-semibold
+              flex-1 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
               ${selectedOption === 'hospitals' 
                 ? 'bg-[#2ca9e0] text-white ' 
                 : 'bg-[#2ca9e0] text-white'
@@ -4858,7 +4873,7 @@ export default function OpenAIAssistant({
           <button
             onClick={() => handleOptionSelect('phc')}
             className={`
-              flex-1 py-3 px-6 rounded-xl font-semibold
+              flex-1 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
               ${selectedOption === 'phc' 
                 ? 'bg-[#2ca9e0] text-white ' 
                 : 'bg-[#2ca9e0] text-white'
@@ -4876,14 +4891,14 @@ export default function OpenAIAssistant({
 
         <form
           onSubmit={handleSubmitOpenAi}
-          className={`py-3 md:py-4 h-fit ring-1 ring-[#2ca9e0] outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] flex items-center justify-center  w-full ${
+          className={`py-3 md:py-4 h-fit ring-1 ${selectedOption ? 'ring-[#2ca9e0]' : 'ring-gray-500'} outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] flex items-center justify-center relative w-full ${
             isRtl ? 'pr-2 pl-11' : 'pl-2 pr-11'
           }`}
         >
           <textarea
             disabled={!selectedOption}
             autoFocus
-            className={`max-h-[60px] resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] w-full `}
+            className={`max-h-[60px] text-xs md:text-sm resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] w-full `}
             onChange={handlePromptChange}
             value={
               answer?.question
@@ -4892,13 +4907,13 @@ export default function OpenAIAssistant({
                 ? decodeURIComponent(userInput[currentLanguage])
                 : decodeURIComponent(userInput)
             }
-            placeholder={decodeURIComponent(placeholder[currentLanguage]) || ''}
+            placeholder={decodeURIComponent(selectedOption ? placeholder[currentLanguage] : disabledPlaceholder[currentLanguage]) || ''}
           />
 
           {isLoading ? (
             <button
               className={`absolute ml-2 order-1 bg-[#2ca9e0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                isRtl ? 'left-1' : 'right-1'
+                isRtl ? 'left-2.5 md:left-1' : 'right-2.5 md:right-1'
               }`}
             >
               <OpenAISpinner />
@@ -4906,19 +4921,20 @@ export default function OpenAIAssistant({
           ) : (
             <button
               disabled={suggesstions?.length || !selectedOption}
-              className={`absolute ${isRtl ? 'left-1' : 'right-1'}`}
+              className={`absolute ${isRtl ? 'left-2.5 md:left-1' : 'right-2.5 md:right-1'}`}
             >
               <Image
                 src={'/Send _icon.svg'}
                 alt="search"
                 width={30}
                 height={30}
-                className="h-10 w-10"
+                className="h-8 md:h-10 w-8 md:w-10"
               />
             </button>
           )}
         </form>
 
+          {suggesstions.length > 0 ?
         <div className="w-full">
           <div
             className={`flex flex-col w-full items-center py-4 ${
@@ -4934,8 +4950,8 @@ export default function OpenAIAssistant({
                       : 'hidden'
                   }`}
                 >
-                  {suggesstions.length > 0 &&
-                    suggesstions.map((suggestion, i) => (
+                  
+                    {suggesstions.map((suggestion, i) => (
                       <li
                         key={i}
                         onClick={() => {
@@ -4988,6 +5004,7 @@ export default function OpenAIAssistant({
             </div>
           </div>
         </div>
+        : null}
 
           <HealthcareSelector
           handleSelectQuestion={(e, prompt) => handleSelectQuestion(e, prompt)}

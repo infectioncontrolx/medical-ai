@@ -50,7 +50,7 @@ export default function Header() {
   }
 
   return (
-    <div className=" shadow-sm flex gap-2 relative flex-col  pb-4  items-center bg-white ">
+    <div className=" shadow-sm flex gap-2 relative flex-col  pb-0  items-center bg-white ">
       <div className="flex justify-between items-center w-full px-4">
         <div className="flex-shrink-0">
           <Link href="/">
@@ -75,7 +75,7 @@ export default function Header() {
           />
         </div>
       </div>
-      <h1 className=" leading-7 sm:leading-8 my-1 text-[#2ca9e0] px-2 font-bold break-words text-lg text-center max-w-[99%] mx-auto">
+      <h1 className=" leading-7 sm:leading-8 my-1 text-[#2ca9e0] px-2 font-bold break-words text-base md:text-lg text-center max-w-[99%] mx-auto">
         {/* {appTitle[currentLanguage]} */}
         AI Assistant for Infection Prevention & Control for Healthcare
         Professionals

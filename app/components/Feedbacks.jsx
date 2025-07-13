@@ -29,7 +29,7 @@ export default function Feedbacks() {
   }
 
   return (
-    <div className=" flex gap-2 relative flex-col mt-6 pb-4  items-center">
+    <div className=" flex gap-2 relative flex-col mt-3 pb-4  items-center">
       
       <div className="px-4 w-full flex justify-center items-center">
         <div className="cursor-pointer " onClick={() => setModelOpened(true)}>

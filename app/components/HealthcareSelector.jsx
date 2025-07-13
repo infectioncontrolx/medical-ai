@@ -142,8 +142,8 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
 
   return (
     <>
-      <div className="w-full my-5">
-        <div className="grid grid-cols-2 gap-4">
+      <div className="w-full my-5 ">
+        <div className="grid grid-cols-2 gap-x-10 gap-y-2">
           {/* {prompts.map((prompt) => (
             <div
               key={prompt.id}
@@ -207,12 +207,12 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
           {cardData.map((card) => (
             <div
               key={card.id}
-              className="rounded-lg border cursor-pointer p-4 min-h-24 flex justify-center items-center"
+              className="rounded-lg border cursor-pointer p-2.5 md:p-3.5 min-h-20 md:min-h-24 flex justify-center items-center max-w-44 md:max-w-56 w-full mx-auto"
               style={{ backgroundColor: card.backgroundColor }}
               onClick={() => handleCardClick(card)}
             >
-              <div className="space-y-3">
-                <h3 className="text-base md:text-lg text-white font-semibold text-center leading-tight">
+              <div className="space-y-3 mx-auto">
+                <h3 className="text-sm md:text-base text-white font-medium text-center leading-tight">
                   {card.title}
                 </h3>
               </div>
