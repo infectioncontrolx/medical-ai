@@ -180,7 +180,7 @@ export default function GuidancePopup({ setIsOpen, isOpen, data }) {
                         >
                           <div className="space-y-1">
                             <p className="text-md text-[#221E1F] cursor-pointer font-bold">
-                              {item?.title}
+                              {item?.name}
                             </p>
 
                             <button
