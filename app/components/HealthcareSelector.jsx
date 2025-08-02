@@ -129,6 +129,55 @@ const cardData = [
     link: "https://drive.google.com/drive/folders/1pdBhL1v-fL04Pbt0uFmKMqAAK1KVs916?usp=drive_link",
     description: "National infection prevention and control guidelines",
     short_id: "national_ipc_guidelines",
+    documents: [
+  // From Image 1
+  { id: 1, name: "Selecting, Evaluating & Monitoring of IPC Supplies & Equipment 2024.pdf", link: "https://drive.google.com/file/d/1jm1nCigskvXU6_exBqDusLRWujief6-e/view?usp=drive_link" },
+  { id: 2, name: "Antimicrobial Stewardship 2024.pdf", link: "https://drive.google.com/file/d/1CG20KOPYHvOZ0j678ctuR3XBTY4oFe5b/view?usp=drive_link" },
+  { id: 3, name: "Best Practices of Environmental Health, cleaning & disinfection 2025.pdf", link: "https://drive.google.com/file/d/1x8dWAr8gQhZjXPKwaCCKv9TbjOlascY6/view?usp=drive_link" },
+  { id: 4, name: "BICSL 2025.pdf", link: "https://drive.google.com/file/d/16D5gf-UqoKb1kV3ineyLjbED623ifax_/view?usp=drive_link" },
+  { id: 5, name: "cleaning and disinfection Manual WEQAYAH Jan 2025.pdf", link: "https://drive.google.com/file/d/16USd1rMjIGdWSUqbN7pJK8vXjKxVIrTF/view?usp=drive_link" },
+  { id: 6, name: "COVID-19 Guidelines March 2024.pdf", link: "https://drive.google.com/file/d/1vYGJ2V--VqTFf4br6uVnn4o0HxwImHpl/view?usp=drive_link" },
+  { id: 7, name: "DENTAL IPC compliance monitoring 2024.pdf", link: "https://drive.google.com/file/d/1brLPpfOh-5tsmGRJ5ppC3XTdBPuek759/view?usp=drive_link" },
+  { id: 8, name: "EBOLA AND MARBURG VIRUSES IPC 2022.pdf", link: "https://drive.google.com/file/d/121u_LcHoLzoZLyKR4x275jHRJQpHZeKQ/view?usp=drive_link" },
+  { id: 9, name: "Environmental Health Manual 2018.pdf", link: "https://drive.google.com/file/d/1q4v5L1UVXQ5lYtB6ASSFAECibgo_hDVU/view?usp=drive_link" },
+  { id: 10, name: "IPC in Medical Rehabilitation and Long Term Care Services 2024 .pdf", link: "https://drive.google.com/file/d/1VsN7ACCIq0cda-_OKV0YO-7Ws8He9h2q/view?usp=drive_link" },
+  { id: 11, name: "IPC Requirements in Design Construction and Renovation in HCF 2021.pdf", link: "https://drive.google.com/file/d/12qdmfGSelliqH-8I4TfCXNzy90vncfBo/view?usp=drive_link" },
+  
+  // From Image 2
+  { id: 12, name: "Maintenance of AIIR 2021.pdf", link: "https://drive.google.com/file/d/1iJzzFSiF8M60Bf-jWupKIuI76Pp1kBui/view?usp=drive_link" },
+  { id: 13, name: "Marburg Ebola Guideline in IPC 2025.pdf", link: "https://drive.google.com/file/d/1-gAUfjOGDOvn4zQ3FfSTiNtAcGi81B0M/view?usp=drive_link" },
+  { id: 14, name: "Policy HEPA Filters replacement in portable HEPA Filters equipment 2023.pdf", link: "https://drive.google.com/file/d/15FZo_sLoHAJ4YU6lZo_agopCLxJb-bg7/view?usp=drive_link" },
+  { id: 15, name: "Prevention of SSI Feb 2024.pdf", link: "https://drive.google.com/file/d/1jW0vlwef6XSLhJenDfvtDLQzLW4mADZB/view?usp=drive_link" },
+  { id: 16, name: "Prevention of VAP & VAEs (Adult, Pediatric & Neonatal) 2025.pdf", link: "https://drive.google.com/file/d/1L9hHWeSg7B1l5FkwfaODTY43SNy-whcn/view?usp=drive_link" },
+  { id: 17, name: "Reprocessing of Linens in Healthcare Settings 2020.pdf", link: "https://drive.google.com/file/d/1ErtTpTZKx3OKV6Q2UscVhPvNd8HnqSdB/view?usp=drive_link" },
+  { id: 18, name: "Respiratory protection program 2022.pdf", link: "https://drive.google.com/file/d/1WMA0MOMDtQKjIcMajIMBs9hZbXsiTUiP/view?usp=drive_link" },
+  { id: 19, name: "Respiratory Protection Program RPP V4.1 Jan 2025.pdf", link: "https://drive.google.com/file/d/1bUULgd8JGU69ZaFohdkvlqXyttForum8/view?usp=drive_link" },
+  { id: 20, name: "safe handling of deceased persons with suspected or confirmed COVID-19 2022.pdf", link: "https://drive.google.com/file/d/1NZricg7TDwatlh4ok_7d_axAkKfkDgib/view?usp=drive_link" },
+  { id: 21, name: "Sterilization Services Manual (V.1 2024).pdf", link: "https://drive.google.com/file/d/1_6PalPm2_1RN_SaFsxm68YcTRVnK54V9/view?usp=drive_link" }
+]
+//     documents: [
+//   { id: 1, name: "Selecting, Evaluating & Monitoring of IPC Supplies & Equipment 2024.pdf", link: "" },
+//   { id: 2, name: "Antimicrobial Stewardship 2024.pdf", link: "" },
+//   { id: 3, name: "Best Practices of Environmental Health, cleaning & disinfection 2025.pdf", link: "" },
+//   { id: 4, name: "BICSL 2025.pdf", link: "" },
+//   { id: 5, name: "cleaning and disinfection Manual WEQAYAH Jan 2025.pdf", link: "" },
+//   { id: 6, name: "COVID-19 Guidelines March 2024.pdf", link: "" },
+//   { id: 7, name: "DENTAL IPC compliance monitoring 2024.pdf", link: "" },
+//   { id: 8, name: "EBOLA AND MARBURG VIRUSES IPC 2022.pdf", link: "" },
+//   { id: 9, name: "Environmental Health Manual 2018.pdf", link: "" },
+//   { id: 10, name: "IPC in Medical Rehabilitation and Long Term Care Services 2024 .pdf", link: "" },
+//   { id: 11, name: "IPC Requirements in Design Construction and Renovation in HCF 2021.pdf", link: "" },
+//   { id: 12, name: "Maintenance of AIIR 2021.pdf", link: "" },
+//   { id: 13, name: "Marburg Ebola Guideline in IPC 2025.pdf", link: "" },
+//   { id: 14, name: "Policy HEPA Filters replacement in portable HEPA Filters equipment 2023.pdf", link: "" },
+//   { id: 15, name: "Prevention of SSI Feb 2024.pdf", link: "" },
+//   { id: 16, name: "Prevention of VAP & VAEs (Adult, Pediatric & Neonatal) 2025.pdf", link: "" },
+//   { id: 17, name: "Reprocessing of Linens in Healthcare Settings 2020.pdf", link: "" },
+//   { id: 18, name: "Respiratory protection program 2022.pdf", link: "" },
+//   { id: 19, name: "Respiratory Protection Program RPP V4.1 Jan 2025.pdf", link: "" },
+//   { id: 20, name: "safe handling of deceased persons with suspected or confirmed COVID-19 2022.pdf", link: "" },
+//   { id: 21, name: "Sterilization Services Manual (V.1 2024).pdf", link: "" }
+// ]
   },
   {
     id: 4,
@@ -149,12 +198,12 @@ const cardData = [
   {
     id: 1,
     name: "APIC TEXT 2024",
-    link: "",
+    link: "https://drive.google.com/file/d/1a5G0DH9zcTBC1dVRINhIM5PeIGYpBGC-/view?usp=drive_link",
   },
   {
     id: 2,
     name: "NHSN 2025",
-    link: "",
+    link: "https://drive.google.com/file/d/1pe4NSUYIX2OtH7WvuVf6Q71J-RNMMhwL/view?usp=drive_link",
   }
 ]
   },
@@ -277,7 +326,7 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
             </div>
           ))} */}
 
-          <div
+          {/* <div
             onClick={(e) => handleModalOpened(data1)}
             className={`
             rounded-lg border p-6
@@ -310,7 +359,7 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
                 Basic Infection Control Skills Liscence
               </p>
             </div>
-          </div>
+          </div> */}
 
 
           {cardData.map((card) => (
