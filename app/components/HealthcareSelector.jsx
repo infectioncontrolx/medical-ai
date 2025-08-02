@@ -53,50 +53,159 @@ const data2 = [
 
 
 
-  const cardData = [
-    {
-      id: 1,
-      title: "Standards & Requirements for IC in Healthcare",
-      backgroundColor: "#24468d", // Blue
-      link: "/standards-requirements",
-      description: "Comprehensive guidelines and standards for infection control in healthcare settings"
-    },
-    {
-      id: 2,
-      title: "Basic IC License BICSL",
-      backgroundColor: "#31bfc0", // Teal
-      link: "/basic-ic-license",
-      description: "Basic Infection Control Skills License certification program"
-    },
-    {
-      id: 3,
-      title: "National IPC Guidelines",
-      backgroundColor: "#10798f", // Dark Teal
-      link: "/national-ipc-guidelines",
-      description: "National infection prevention and control guidelines"
-    },
-    {
-      id: 4,
-      title: "HATs Surveillance & Outbreak",
-      backgroundColor: "#48b558", // Green
-      link: "/hats-surveillance",
-      description: "Healthcare-associated infections tracking and outbreak management"
-    },
-    {
-      id: 5,
-      title: "International IPC Guidelines",
-      backgroundColor: "#1a94d3", // Light Blue
-      link: "/international-ipc-guidelines",
-      description: "International infection prevention and control standards"
-    },
-    {
-      id: 6,
-      title: "Contacts & Posters",
-      backgroundColor: "#93c951", // Light Green
-      link: "/contacts-posters",
-      description: "Contact information and educational materials"
-    }
-  ];
+//   const cardData = [
+//     {
+//       id: 1,
+//       title: "Standards & Requirements for IC in Healthcare",
+//       backgroundColor: "#24468d", // Blue
+//       link: "https://drive.google.com/drive/folders/1SEzJkLja4KpeCWyuX_A42CyCCvJKXPtR?usp=sharing",
+//       description: "Comprehensive guidelines and standards for infection control in healthcare settings",
+//       short_id: "",
+//     },
+//     {
+//       id: 2,
+//       title: "Basic IC License BICSL",
+//       backgroundColor: "#31bfc0", // Teal
+//       link: "https://drive.google.com/drive/folders/1MFHkAZcobSry5F_Lm5HaTVXvU5gflr_x?usp=drive_link",
+//       description: "Basic Infection Control Skills License certification program",
+//       short_id: "",
+//     },
+//     {
+//       id: 3,
+//       title: "National IPC Guidelines",
+//       backgroundColor: "#10798f", // Dark Teal
+//       link: "https://drive.google.com/drive/folders/1pdBhL1v-fL04Pbt0uFmKMqAAK1KVs916?usp=drive_link",
+//       description: "National infection prevention and control guidelines",
+//       short_id: "",
+//     },
+//     {
+//         id: 4,
+//         title: "HATs Surveillance & Outbreak",
+//         backgroundColor: "#48b558", // Green
+//         link: "https://drive.google.com/drive/folders/1ImK_Poq3vDtmovzqGEeOkCx6sPKXhmZC?usp=drive_link",
+//         description: "Healthcare-associated infections tracking and outbreak management",
+//         short_id: "",
+//     },
+//     {
+//       id: 5,
+//       title: "International IPC Guidelines",
+//       backgroundColor: "#1a94d3", // Light Blue
+//       link: "https://drive.google.com/drive/folders/1V5HAAqkCk-bk1uUa5pJufC9_cev5EaiF?usp=drive_link",
+//       description: "International infection prevention and control standards",
+//       short_id: "",
+//     },
+//     {
+//       id: 6,
+//       title: "Contacts & Posters",
+//       backgroundColor: "#93c951", // Light Green
+//       link: "https://drive.google.com/drive/folders/1ODgVwJfaR3SrTW_dNBUVC8P7sMfgO9S2?usp=drive_link",
+//       description: "Contact information and educational materials",
+//       short_id: "",
+//     }
+//   ];
+
+
+const cardData = [
+  {
+    id: 1,
+    title: "Standards & Requirements for IC in Healthcare",
+    backgroundColor: "#24468d", // Blue
+    link: "https://drive.google.com/drive/folders/1SEzJkLja4KpeCWyuX_A42CyCCvJKXPtR?usp=sharing",
+    description: "Comprehensive guidelines and standards for infection control in healthcare settings",
+    short_id: "standards_requirements_ic_healthcare",
+  },
+  {
+    id: 2,
+    title: "Basic IC License BICSL",
+    backgroundColor: "#31bfc0", // Teal
+    link: "https://drive.google.com/drive/folders/1MFHkAZcobSry5F_Lm5HaTVXvU5gflr_x?usp=drive_link",
+    description: "Basic Infection Control Skills License certification program",
+    short_id: "basic_ic_license_bicsl",
+  },
+  {
+    id: 3,
+    title: "National IPC Guidelines",
+    backgroundColor: "#10798f", // Dark Teal
+    link: "https://drive.google.com/drive/folders/1pdBhL1v-fL04Pbt0uFmKMqAAK1KVs916?usp=drive_link",
+    description: "National infection prevention and control guidelines",
+    short_id: "national_ipc_guidelines",
+  },
+  {
+    id: 4,
+    title: "HATs Surveillance & Outbreak",
+    backgroundColor: "#48b558", // Green
+    link: "https://drive.google.com/drive/folders/1ImK_Poq3vDtmovzqGEeOkCx6sPKXhmZC?usp=drive_link",
+    description: "Healthcare-associated infections tracking and outbreak management",
+    short_id: "hats_surveillance_outbreak",
+  },
+  {
+    id: 5,
+    title: "International IPC Guidelines",
+    backgroundColor: "#1a94d3", // Light Blue
+    link: "https://drive.google.com/drive/folders/1V5HAAqkCk-bk1uUa5pJufC9_cev5EaiF?usp=drive_link",
+    description: "International infection prevention and control standards",
+    short_id: "international_ipc_guidelines",
+    documents: [
+  {
+    id: 1,
+    name: "APIC TEXT 2024",
+    link: "",
+  },
+  {
+    id: 2,
+    name: "NHSN 2025",
+    link: "",
+  }
+]
+  },
+  {
+    id: 6,
+    title: "Contacts & Posters",
+    backgroundColor: "#93c951", // Light Green
+    link: "https://drive.google.com/drive/folders/1ODgVwJfaR3SrTW_dNBUVC8P7sMfgO9S2?usp=drive_link",
+    description: "Contact information and educational materials",
+    short_id: "contacts_posters",
+     documents : [
+  { id: 1, name: "إيبولا إنجليزي", link: "" },
+  { id: 2, name: "إيبولا عربي", link: "" },
+  { id: 3, name: "احتياطات العزل التلامسي أخضر", link: "" },
+  { id: 4, name: "احتياطات العزل الذاتي أحمر", link: "" },
+  { id: 5, name: "احتياطات العزل الهوائي أزرق", link: "" },
+  { id: 6, name: "احتياطات نقل الحالات المعزولة تلامسي أخضر", link: "" },
+  { id: 7, name: "احتياطات نقل الحالات المعزولة الذاتي أحمر", link: "" },
+  { id: 8, name: "احتياطات نقل الحالات المعزولة هوائي أزرق", link: "" },
+  { id: 9, name: "الملاحظات الخمس لتطهير الأيدي", link: "" },
+    { id: 10, name: "انبوكس انجليزي", link: "" },
+  { id: 11, name: "انبوكس عربي", link: "" },
+  { id: 12, name: "بوستر آداب السجال", link: "" },
+  { id: 13, name: "بوستر ارشاد ادوات الوقاية الشخصية", link: "" },
+  { id: 14, name: "بوستر طقم ادوات الوقاية الشخصية", link: "" },
+  { id: 15, name: "بوستر فصل الفلفيت الطبية", link: "" },
+  { id: 16, name: "تغيير الايدي بالجل الكحولي", link: "" },
+  { id: 17, name: "غسيل الايدي بالماء", link: "" },
+  { id: 18, name: "كوفيد 19 انجليزي", link: "" },
+  { id: 19, name: "كوفيد 19 عربي", link: "" },
+  { id: 20, name: "ميرس انجليزي", link: "" },
+  { id: 21, name: "ميرس عربي", link: "" },
+]
+  }
+];
+
+
+  const folders = [
+  { name: "International guidelines", short_name: "international_guidelines" },
+  { name: "IPC posters", short_name: "ipc_posters" },
+  { name: "National guidelines", short_name: "national_guidelines" },
+  {
+    name: "Standards & Requirements for Infection Control in Health...",
+    short_name: "standards_infection_control"
+  },
+  {
+    name: "surveillance and outbreak program",
+    short_name: "surveillance_outbreak_program"
+  }
+];
+
 
 const HealthcareSelector = ({ handleSelectQuestion }) => {
   const router = useRouter();
@@ -168,7 +277,7 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
             </div>
           ))} */}
 
-          {/* <div
+          <div
             onClick={(e) => handleModalOpened(data1)}
             className={`
             rounded-lg border p-6
@@ -201,7 +310,7 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
                 Basic Infection Control Skills Liscence
               </p>
             </div>
-          </div> */}
+          </div>
 
 
           {cardData.map((card) => (
@@ -209,7 +318,8 @@ const HealthcareSelector = ({ handleSelectQuestion }) => {
               key={card.id}
               className="rounded-lg border cursor-pointer p-2.5 md:p-3.5 min-h-20 md:min-h-24 flex justify-center items-center max-w-44 md:max-w-56 w-full mx-auto"
               style={{ backgroundColor: card.backgroundColor }}
-              onClick={() => handleCardClick(card)}
+            //   onClick={() => handleCardClick(card)}
+              onClick={(e) => handleModalOpened(card)}
             >
               <div className="space-y-3 mx-auto">
                 <h3 className="text-sm md:text-base text-white font-medium text-center leading-tight">

@@ -15,7 +15,7 @@ import remarkGfm from 'remark-gfm';
 import HealthcareSelector from './HealthcareSelector';
 
 export default function OpenAIAssistant({
-  assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
+//   assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
   userInput,
   setUserInput,
 }) {
@@ -25,6 +25,7 @@ export default function OpenAIAssistant({
   const [isLoading, setIsLoading] = useState(false);
   const [threadId, setThreadId] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [assistantId, setAssistantId] = useState('');
   const [streamingMessage, setStreamingMessage] = useState({
     id: 'Thinking...',
     role: 'assistant',
@@ -75,13 +76,21 @@ export default function OpenAIAssistant({
   const [answer, setAnswer] = useState({});
   const [answerBox, setAnswerBox] = useState(false);
   const [predefinedQuestions, setPredefinedQuestions] = useState([]);
-    const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [inputValue, setInputValue] = useState('');
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
-    // Clear input when switching options
+    if(option === 'phc' ) {
+        setAssistantId("asst_tQzyG4yOKaC9RWlchzmzH0JD")
+    }else{
+        setAssistantId("asst_a4CVqRL4lQvtCW8JCRWaCpV1")
+    }
     setInputValue('');
   };
+
+//   asst_a4CVqRL4lQvtCW8JCRWaCpV1 hospital
+// asst_tQzyG4yOKaC9RWlchzmzH0JD ipc
 
   const getQuestions = async () => {
     // await fetch("api/questions")
