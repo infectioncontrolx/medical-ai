@@ -55,7 +55,7 @@ export default function Header() {
         <div className="flex-shrink-0">
           <Link href="/">
             <Image
-              src="/logo-new.png"
+              src="/ipclogo.png"
               height={100}
               width={100}
               alt="IPC Expert logo"
