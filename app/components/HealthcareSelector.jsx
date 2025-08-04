@@ -130,7 +130,15 @@ const cardData = [
         link: "https://drive.google.com/drive/folders/1MFHkAZcobSry5F_Lm5HaTVXvU5gflr_x?usp=drive_link",
         description: "Basic Infection Control Skills License certification program",
         short_id: "basic_ic_license_bicsl",
-        documents: []
+        documents: [
+  { id: 1, name: "Hand Hygiene (HH)", link: "https://drive.google.com/file/d/1NFyjj8nnHRXp7GtM6qMb5xBUoBRBU6JC/view?usp=drive_link" },
+  { id: 2, name: "Personal Protective Equipment (PPE)", link: "https://drive.google.com/file/d/1ZHD6si_HJe1ay6BQHbcDKibadN069gtT/view?usp=drive_link" },
+  { id: 3, name: "Biological Spill Management", link: "https://drive.google.com/file/d/1_FvRAByQY7FgvDQDK6e4EvYkZptzShY0/view?usp=drive_link" },
+  { id: 4, name: "Sharp Injuries / Needle Stick Injuries (NSI) Management", link: "https://drive.google.com/file/d/1CRr87aBcfFPzeL73NsAksrZ3nPudpXbF/view?usp=drive_link" },
+  { id: 5, name: "Transmission Based Precautions", link: "https://drive.google.com/file/d/1cXrm-WUlvIrMsIT9I7rGA3iTs8QIaj-n/view?usp=drive_link" },
+  { id: 6, name: "Respirator Fit Test", link: "https://drive.google.com/file/d/1YLsgI9q6hJoVYpqeOcZX8EvACdZ-b_Yu/view?usp=drive_link" },
+  { id: 7, name: "Powered Air Purifying Respirator (PAPR)", link: "https://drive.google.com/file/d/11cjZUWe8lTi1SpircKU70IR6gJ11e2G5/view?usp=drive_link" },
+],
     },
     {
         id: 3,
