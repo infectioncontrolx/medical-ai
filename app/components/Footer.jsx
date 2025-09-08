@@ -72,9 +72,7 @@ export default function Footer() {
           </p>
         </div>
       </div> 
-               <div class="mt-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-center px-5 py-3 rounded shadow-lg font-medium text-base">
-  🚀 This application is currently in <span class="font-semibold">Beta</span>. Some features may change or improve!
-</div>
+              
     </div>
   );
 }

@@ -80,6 +80,10 @@ export default function Header() {
         AI Assistant for Infection Prevention & Control for Healthcare
         Professionals
       </h1>
+      <h1 className=" leading-7 sm:leading-8 my-1 text-[#ee5f34e0] px-2 font-bold break-words text-base md:text-lg text-center max-w-[99%] mx-auto">
+        {/* {appTitle[currentLanguage]} */}
+        [This applicant is currently in Beta version]
+      </h1>
       <div className="px-4 w-full flex justify-center items-center">
         {/* <div className="p-3 w-full flex justify-evenly flex-row items-center">
           <Image
