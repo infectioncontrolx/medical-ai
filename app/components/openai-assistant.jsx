@@ -4870,7 +4870,7 @@ export default function OpenAIAssistant({
             onClick={() => handleOptionSelect('hospitals')}
             className={`
               flex-1 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
-              ${selectedOption === 'hospitals' 
+              ${selectedOption !== 'hospitals' 
                 ? 'bg-gray-400 text-white ' 
                 : 'bg-[#2ca9e0] text-white'
               }
@@ -4883,7 +4883,7 @@ export default function OpenAIAssistant({
             onClick={() => handleOptionSelect('phc')}
             className={`
               flex-1 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
-              ${selectedOption === 'phc' 
+              ${selectedOption !== 'phc' 
                 ? 'bg-gray-400 text-white ' 
                 : 'bg-[#2ca9e0] text-white'
               }
