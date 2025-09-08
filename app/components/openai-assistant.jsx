@@ -4871,7 +4871,7 @@ export default function OpenAIAssistant({
             className={`
               flex-1 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
               ${selectedOption === 'hospitals' 
-                ? 'bg-[#2ca9e0] text-white ' 
+                ? 'bg-gray-400 text-white ' 
                 : 'bg-[#2ca9e0] text-white'
               }
             `}
@@ -4884,7 +4884,7 @@ export default function OpenAIAssistant({
             className={`
               flex-1 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
               ${selectedOption === 'phc' 
-                ? 'bg-[#2ca9e0] text-white ' 
+                ? 'bg-gray-400 text-white ' 
                 : 'bg-[#2ca9e0] text-white'
               }
             `}

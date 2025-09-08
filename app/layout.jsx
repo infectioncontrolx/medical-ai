@@ -96,6 +96,9 @@ export default function RootLayout({ children }) {
                                 {pathName !== '/medical' && (
                                     <Footer className="mt-auto w-full fixed bottom-0" />
                                 )}
+
+                      
+
                             </div>
                         </UserLocationContext.Provider>
                     </SelectedBusinessContext.Provider>
