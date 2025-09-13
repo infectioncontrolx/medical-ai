@@ -4864,6 +4864,10 @@ export default function OpenAIAssistant({
           handleSelectQuestion={(e, prompt) => handleSelectQuestion(e, prompt)}
         /> */}
 
+        {selectedOption ? null : <div className="">
+        <p>Select an option to start chatting.</p>
+        </div>}
+
         {/* Toggle Buttons */}
         <div className="flex space-x-10 my-4">
           <button
@@ -4897,8 +4901,8 @@ export default function OpenAIAssistant({
           <OpenAIAssistantMessage key={m.id} message={m} />
         ))}
         {isLoading && <OpenAIAssistantMessage message={streamingMessage} />}
-
-        <form
+        
+        {!selectedOption ? null : <form
           onSubmit={handleSubmitOpenAi}
           className={`py-3 md:py-4 h-fit ring-1 ${selectedOption ? 'ring-[#2ca9e0]' : 'ring-gray-500'} outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] flex items-center justify-center relative w-full ${
             isRtl ? 'pr-2 pl-11' : 'pl-2 pr-11'
@@ -4941,7 +4945,7 @@ export default function OpenAIAssistant({
               />
             </button>
           )}
-        </form>
+        </form>}
 
           {suggesstions.length > 0 ?
         <div className="w-full">
