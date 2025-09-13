@@ -15,7 +15,7 @@ import remarkGfm from 'remark-gfm';
 import HealthcareSelector from './HealthcareSelector';
 
 export default function OpenAIAssistant({
-//   assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
+  //   assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
   userInput,
   setUserInput,
 }) {
@@ -56,19 +56,18 @@ export default function OpenAIAssistant({
     fa: 'سوال خود را تایپ کنید',
   };
   const disabledPlaceholder = {
-  en: 'Select an option to continue',
-  bn: 'চালাতে একটি অপশন বেছে নিন',
-  ar: 'تابع باختيار خيار',
-  bm: 'Pilih satu untuk teruskan',
-  ud: 'آگے بڑھنے کے لیے انتخاب کریں',
-  fr: 'Choisissez pour continuer',
-  in: 'Pilih untuk lanjut',
-  tr: 'Devam için seçin',
-  hn: 'जारी रखने के लिए चुनें',
-  ks: 'Chagua ili kuendelea',
-  fa: 'برای ادامه انتخاب کنید',
-};
-
+    en: 'Select an option to continue',
+    bn: 'চালাতে একটি অপশন বেছে নিন',
+    ar: 'تابع باختيار خيار',
+    bm: 'Pilih satu untuk teruskan',
+    ud: 'آگے بڑھنے کے لیے انتخاب کریں',
+    fr: 'Choisissez pour continuer',
+    in: 'Pilih untuk lanjut',
+    tr: 'Devam için seçin',
+    hn: 'जारी रखने के लिए चुनें',
+    ks: 'Chagua ili kuendelea',
+    fa: 'برای ادامه انتخاب کنید',
+  };
 
   const [suggesstions, setSuggestions] = useState([]);
 
@@ -81,16 +80,16 @@ export default function OpenAIAssistant({
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
-    if(option === 'phc' ) {
-        setAssistantId("asst_tQzyG4yOKaC9RWlchzmzH0JD")
-    }else{
-        setAssistantId("asst_a4CVqRL4lQvtCW8JCRWaCpV1")
+    if (option === 'phc') {
+      setAssistantId('asst_tQzyG4yOKaC9RWlchzmzH0JD');
+    } else {
+      setAssistantId('asst_a4CVqRL4lQvtCW8JCRWaCpV1');
     }
     setInputValue('');
   };
 
-//   asst_a4CVqRL4lQvtCW8JCRWaCpV1 hospital
-// asst_tQzyG4yOKaC9RWlchzmzH0JD ipc
+  //   asst_a4CVqRL4lQvtCW8JCRWaCpV1 hospital
+  // asst_tQzyG4yOKaC9RWlchzmzH0JD ipc
 
   const getQuestions = async () => {
     // await fetch("api/questions")
@@ -4709,7 +4708,7 @@ export default function OpenAIAssistant({
     setSuggestions([]);
   };
 
-  console.log("bg images", bgImage)
+  console.log('bg images', bgImage);
 
   const hanleCloseClick = () => {
     setAnswerBox(false);
@@ -4864,9 +4863,11 @@ export default function OpenAIAssistant({
           handleSelectQuestion={(e, prompt) => handleSelectQuestion(e, prompt)}
         /> */}
 
-        {selectedOption ? null : <div className="">
-        <p>Select an option to start chatting.</p>
-        </div>}
+        {selectedOption ? null : (
+          <div className="">
+            <p>Select an option below to start</p>
+          </div>
+        )}
 
         {/* Toggle Buttons */}
         <div className="flex space-x-10 my-4">
@@ -4874,22 +4875,24 @@ export default function OpenAIAssistant({
             onClick={() => handleOptionSelect('hospitals')}
             className={`
               flex-1 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
-              ${selectedOption !== 'hospitals' 
-                ? 'bg-gray-400 text-white ' 
-                : 'bg-[#2ca9e0] text-white'
+              ${
+                selectedOption !== 'hospitals'
+                  ? 'bg-gray-400 text-white '
+                  : 'bg-[#2ca9e0] text-white'
               }
             `}
           >
             Hospitals
           </button>
-          
+
           <button
             onClick={() => handleOptionSelect('phc')}
             className={`
               flex-1 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
-              ${selectedOption !== 'phc' 
-                ? 'bg-gray-400 text-white ' 
-                : 'bg-[#2ca9e0] text-white'
+              ${
+                selectedOption !== 'phc'
+                  ? 'bg-gray-400 text-white '
+                  : 'bg-[#2ca9e0] text-white'
               }
             `}
           >
@@ -4901,69 +4904,80 @@ export default function OpenAIAssistant({
           <OpenAIAssistantMessage key={m.id} message={m} />
         ))}
         {isLoading && <OpenAIAssistantMessage message={streamingMessage} />}
-        
-        {!selectedOption ? null : <form
-          onSubmit={handleSubmitOpenAi}
-          className={`py-3 md:py-4 h-fit ring-1 ${selectedOption ? 'ring-[#2ca9e0]' : 'ring-gray-500'} outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] flex items-center justify-center relative w-full ${
-            isRtl ? 'pr-2 pl-11' : 'pl-2 pr-11'
-          }`}
-        >
-          <textarea
-            disabled={!selectedOption}
-            autoFocus
-            className={`max-h-[60px] text-xs md:text-sm resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] w-full `}
-            onChange={handlePromptChange}
-            value={
-              answer?.question
-                ? decodeURIComponent(answer?.question[currentLanguage])
-                : typeof userInput == 'object'
-                ? decodeURIComponent(userInput[currentLanguage])
-                : decodeURIComponent(userInput)
-            }
-            placeholder={decodeURIComponent(selectedOption ? placeholder[currentLanguage] : disabledPlaceholder[currentLanguage]) || ''}
-          />
 
-          {isLoading ? (
-            <button
-              className={`absolute ml-2 order-1 bg-[#2ca9e0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-                isRtl ? 'left-2.5 md:left-1' : 'right-2.5 md:right-1'
-              }`}
-            >
-              <OpenAISpinner />
-            </button>
-          ) : (
-            <button
-              disabled={suggesstions?.length || !selectedOption}
-              className={`absolute ${isRtl ? 'left-2.5 md:left-1' : 'right-2.5 md:right-1'}`}
-            >
-              <Image
-                src={'/Send _icon.svg'}
-                alt="search"
-                width={30}
-                height={30}
-                className="h-8 md:h-10 w-8 md:w-10"
-              />
-            </button>
-          )}
-        </form>}
-
-          {suggesstions.length > 0 ?
-        <div className="w-full">
-          <div
-            className={`flex flex-col w-full items-center py-4 ${
-              isRtl ? 'flex-row-reverse' : ''
+        {!selectedOption ? null : (
+          <form
+            onSubmit={handleSubmitOpenAi}
+            className={`py-3 md:py-4 h-fit ring-1 ${
+              selectedOption ? 'ring-[#2ca9e0]' : 'ring-gray-500'
+            } outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] flex items-center justify-center relative w-full ${
+              isRtl ? 'pr-2 pl-11' : 'pl-2 pr-11'
             }`}
           >
-            <div className="w-full my-4 flex items-center justify-center  ">
-              {userInput && (
-                <ul
-                  className={`${
-                    suggestionLinks
-                      ? ' mx-4   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4   '
-                      : 'hidden'
-                  }`}
-                >
-                  
+            <textarea
+              disabled={!selectedOption}
+              autoFocus
+              className={`max-h-[60px] text-xs md:text-sm resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] w-full `}
+              onChange={handlePromptChange}
+              value={
+                answer?.question
+                  ? decodeURIComponent(answer?.question[currentLanguage])
+                  : typeof userInput == 'object'
+                  ? decodeURIComponent(userInput[currentLanguage])
+                  : decodeURIComponent(userInput)
+              }
+              placeholder={
+                decodeURIComponent(
+                  selectedOption
+                    ? placeholder[currentLanguage]
+                    : disabledPlaceholder[currentLanguage]
+                ) || ''
+              }
+            />
+
+            {isLoading ? (
+              <button
+                className={`absolute ml-2 order-1 bg-[#2ca9e0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+                  isRtl ? 'left-2.5 md:left-1' : 'right-2.5 md:right-1'
+                }`}
+              >
+                <OpenAISpinner />
+              </button>
+            ) : (
+              <button
+                disabled={suggesstions?.length || !selectedOption}
+                className={`absolute ${
+                  isRtl ? 'left-2.5 md:left-1' : 'right-2.5 md:right-1'
+                }`}
+              >
+                <Image
+                  src={'/Send _icon.svg'}
+                  alt="search"
+                  width={30}
+                  height={30}
+                  className="h-8 md:h-10 w-8 md:w-10"
+                />
+              </button>
+            )}
+          </form>
+        )}
+
+        {suggesstions.length > 0 ? (
+          <div className="w-full">
+            <div
+              className={`flex flex-col w-full items-center py-4 ${
+                isRtl ? 'flex-row-reverse' : ''
+              }`}
+            >
+              <div className="w-full my-4 flex items-center justify-center  ">
+                {userInput && (
+                  <ul
+                    className={`${
+                      suggestionLinks
+                        ? ' mx-4   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4   '
+                        : 'hidden'
+                    }`}
+                  >
                     {suggesstions.map((suggestion, i) => (
                       <li
                         key={i}
@@ -4984,42 +4998,42 @@ export default function OpenAIAssistant({
                         )}
                       </li>
                     ))}
-                </ul>
-              )}
-            </div>
-            <div
-              className={`answer w-4/5 rounded-lg relative bg-[#F0F4F9] p-4 ${
-                answerBox ? 'block' : 'hidden'
-              }`}
-            >
-              <span
-                className=" h-6 flex items-center justify-center w-6 absolute  text-black font-bold  right-1 top-1  bg-white  rounded-full cursor-pointer "
-                onClick={hanleCloseClick}
-              >
-                x
-              </span>
-              <p className="bg-teal-600 w-fit  px-4 py-3 md:font-semibold right-2 text-white  mb-8 rounded-lg">
-                {answer?.question
-                  ? decodeURIComponent(answer?.question[currentLanguage])
-                  : decodeURIComponent(userInput)}
-              </p>
-
-              <div className="bg-white rounded-lg sm:text-sm p-4 flex items-center gap-6">
-                {answer?.answer && (
-                  <ReactTyped
-                    strings={[
-                      decodeURIComponent(answer?.answer[currentLanguage]),
-                    ]}
-                    typeSpeed={10}
-                  />
+                  </ul>
                 )}
+              </div>
+              <div
+                className={`answer w-4/5 rounded-lg relative bg-[#F0F4F9] p-4 ${
+                  answerBox ? 'block' : 'hidden'
+                }`}
+              >
+                <span
+                  className=" h-6 flex items-center justify-center w-6 absolute  text-black font-bold  right-1 top-1  bg-white  rounded-full cursor-pointer "
+                  onClick={hanleCloseClick}
+                >
+                  x
+                </span>
+                <p className="bg-teal-600 w-fit  px-4 py-3 md:font-semibold right-2 text-white  mb-8 rounded-lg">
+                  {answer?.question
+                    ? decodeURIComponent(answer?.question[currentLanguage])
+                    : decodeURIComponent(userInput)}
+                </p>
+
+                <div className="bg-white rounded-lg sm:text-sm p-4 flex items-center gap-6">
+                  {answer?.answer && (
+                    <ReactTyped
+                      strings={[
+                        decodeURIComponent(answer?.answer[currentLanguage]),
+                      ]}
+                      typeSpeed={10}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        : null}
+        ) : null}
 
-          <HealthcareSelector
+        <HealthcareSelector
           handleSelectQuestion={(e, prompt) => handleSelectQuestion(e, prompt)}
         />
       </div>
