@@ -4865,7 +4865,7 @@ export default function OpenAIAssistant({
 
         {selectedOption ? null : (
           <div className="">
-            <p>Select an option below to start</p>
+            <p>Please select your organization</p>
           </div>
         )}
 
