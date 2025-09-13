@@ -56,7 +56,7 @@ export default function OpenAIAssistant({
     fa: 'سوال خود را تایپ کنید',
   };
   const disabledPlaceholder = {
-    en: 'Select an option to continue',
+    en: 'Please select your organization',
     bn: 'চালাতে একটি অপশন বেছে নিন',
     ar: 'تابع باختيار خيار',
     bm: 'Pilih satu untuk teruskan',
