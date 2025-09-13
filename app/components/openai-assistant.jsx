@@ -4865,10 +4865,16 @@ export default function OpenAIAssistant({
         /> */}
 
         {selectedOption ? null : (
-          <div className="">
-            <p>Please select your organization</p>
-          </div>
-        )}
+  <div className="">
+    <p className="flex items-center gap-2">
+      Please select your organization by clicking the button below
+      <button className="bg-[#2ca9e0] p-2 rounded-full">
+        <LuMousePointerClick className="h-6 w-6 text-white" />
+      </button>
+    </p>
+  </div>
+)}
+
 
         {/* Toggle Buttons */}
         <div className="flex space-x-10 my-4">
@@ -4883,7 +4889,7 @@ export default function OpenAIAssistant({
               }
             `}
           >
-          {selectedOption ? null : <LuMousePointerClick />} 
+          
             Hospitals
           </button>
 
@@ -4898,7 +4904,7 @@ export default function OpenAIAssistant({
               }
             `}
           >
-          {selectedOption ? null : <LuMousePointerClick />} 
+         
             PHC
           </button>
         </div>
