@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import HealthcareSelector from './HealthcareSelector';
+import { LuMousePointerClick } from 'react-icons/lu';
 
 export default function OpenAIAssistant({
   //   assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
@@ -4874,7 +4875,7 @@ export default function OpenAIAssistant({
           <button
             onClick={() => handleOptionSelect('hospitals')}
             className={`
-              flex-1 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
+              flex items-center justify-center gap-2 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
               ${
                 selectedOption !== 'hospitals'
                   ? 'bg-gray-400 text-white '
@@ -4882,13 +4883,14 @@ export default function OpenAIAssistant({
               }
             `}
           >
+          {selectedOption ? null : <LuMousePointerClick />} 
             Hospitals
           </button>
 
           <button
             onClick={() => handleOptionSelect('phc')}
             className={`
-              flex-1 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
+              flex items-center justify-center gap-2  py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
               ${
                 selectedOption !== 'phc'
                   ? 'bg-gray-400 text-white '
@@ -4896,6 +4898,7 @@ export default function OpenAIAssistant({
               }
             `}
           >
+          {selectedOption ? null : <LuMousePointerClick />} 
             PHC
           </button>
         </div>
