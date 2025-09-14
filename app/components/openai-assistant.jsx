@@ -8,14 +8,12 @@ import Image from 'next/image';
 import { AssistantStream } from 'openai/lib/AssistantStream';
 import { useEffect, useRef, useState } from 'react';
 import { AiOutlineRobot, AiOutlineUser } from 'react-icons/ai';
+import { TfiHandPointLeft, TfiHandPointRight } from 'react-icons/tfi';
 import ReactMarkdown from 'react-markdown';
 import { useSelector } from 'react-redux';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import HealthcareSelector from './HealthcareSelector';
-import { LuMousePointerClick } from 'react-icons/lu';
-import { PiHandSwipeRightBold } from "react-icons/pi";
-import { PiHandSwipeLeftBold } from "react-icons/pi";
 
 export default function OpenAIAssistant({
   //   assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
@@ -4866,24 +4864,24 @@ export default function OpenAIAssistant({
         /> */}
 
         {selectedOption ? null : (
-  <div className="">
-    <p className="flex items-center gap-2">
-      Please select your organization by clicking the button below
-    </p>
-  </div>
-)}
-
+          <div className="">
+            <p className="flex items-center gap-2">
+              Please select your organization
+            </p>
+          </div>
+        )}
 
         {/* Toggle Buttons */}
         <div className="flex space-x-10 my-4">
-
-            <div className="flex items-center gap-2">
-      {selectedOption ? null : <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
-        <PiHandSwipeRightBold className="h-6 w-6 text-white" />
-      </button>}
-          <button
-            onClick={() => handleOptionSelect('hospitals')}
-            className={`
+          <div className="flex items-center gap-2">
+            {selectedOption ? null : (
+              <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
+                <TfiHandPointRight className="h-6 w-6 text-white" />
+              </button>
+            )}
+            <button
+              onClick={() => handleOptionSelect('hospitals')}
+              className={`
               flex items-center justify-center gap-2 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
               ${
                 selectedOption !== 'hospitals'
@@ -4891,16 +4889,15 @@ export default function OpenAIAssistant({
                   : 'bg-[#2ca9e0] text-white'
               }
             `}
-          >
-          
-            Hospitals
-          </button>
-            </div>
+            >
+              Hospitals
+            </button>
+          </div>
 
-<div className="flex items-center gap-2">
-          <button
-            onClick={() => handleOptionSelect('phc')}
-            className={`
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => handleOptionSelect('phc')}
+              className={`
               flex items-center justify-center gap-2  py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
               ${
                 selectedOption !== 'phc'
@@ -4908,14 +4905,15 @@ export default function OpenAIAssistant({
                   : 'bg-[#2ca9e0] text-white'
               }
             `}
-          >
-         
-            PHC
-          </button>
-      {selectedOption ? null : <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
-        <PiHandSwipeLeftBold className="h-6 w-6 text-white" />
-      </button>}
-        </div>
+            >
+              PHC
+            </button>
+            {selectedOption ? null : (
+              <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
+                <TfiHandPointLeft className="h-6 w-6 text-white" />
+              </button>
+            )}
+          </div>
         </div>
 
         {messages.map((m) => (
