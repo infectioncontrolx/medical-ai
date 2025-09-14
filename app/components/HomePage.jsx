@@ -13,6 +13,8 @@ import FeedBackModal from './FeedBackModal';
 const OpenAIAssistant = dynamic(() => import('./openai-assistant'), {
   ssr: false, // This ensures the component is only rendered on the client side
 });
+// import OpenAIAssistant from './openai-assistant';
+
 export default function HomePage() {
   const searchParams = useSearchParams();
   const [selectedType, setSelectedType] = useState('');
