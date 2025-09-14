@@ -14,6 +14,8 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import HealthcareSelector from './HealthcareSelector';
 import { LuMousePointerClick } from 'react-icons/lu';
+import { PiHandSwipeRightBold } from "react-icons/pi";
+import { PiHandSwipeLeftBold } from "react-icons/pi";
 
 export default function OpenAIAssistant({
   //   assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
@@ -4808,7 +4810,6 @@ export default function OpenAIAssistant({
           lang: currentLanguage,
         });
       }
-      console.log('messagemessagemessage', finalContent);
 
       // remove busy indicator
       setIsLoading(false);
@@ -4868,9 +4869,6 @@ export default function OpenAIAssistant({
   <div className="">
     <p className="flex items-center gap-2">
       Please select your organization by clicking the button below
-      <button className="bg-[#2ca9e0] p-2 rounded-full">
-        <LuMousePointerClick className="h-6 w-6 text-white" />
-      </button>
     </p>
   </div>
 )}
@@ -4878,6 +4876,11 @@ export default function OpenAIAssistant({
 
         {/* Toggle Buttons */}
         <div className="flex space-x-10 my-4">
+
+            <div className="flex items-center gap-2">
+      {selectedOption ? null : <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
+        <PiHandSwipeRightBold className="h-6 w-6 text-white" />
+      </button>}
           <button
             onClick={() => handleOptionSelect('hospitals')}
             className={`
@@ -4892,7 +4895,9 @@ export default function OpenAIAssistant({
           
             Hospitals
           </button>
+            </div>
 
+<div className="flex items-center gap-2">
           <button
             onClick={() => handleOptionSelect('phc')}
             className={`
@@ -4907,6 +4912,10 @@ export default function OpenAIAssistant({
          
             PHC
           </button>
+      {selectedOption ? null : <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
+        <PiHandSwipeLeftBold className="h-6 w-6 text-white" />
+      </button>}
+        </div>
         </div>
 
         {messages.map((m) => (
