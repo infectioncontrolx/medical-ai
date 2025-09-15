@@ -4914,7 +4914,7 @@ export default function OpenAIAssistant({
         )}
 
         {/* Toggle Buttons */}
-        <div className="flex space-x-5 md:space-x-10  my-4">
+        <div className="flex space-x-4 md:space-x-10  my-4">
           <div className="flex items-center gap-2">
             {selectedOption ? null : (
               <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
