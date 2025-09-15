@@ -4882,7 +4882,7 @@ export default function OpenAIAssistant({
             <button
               onClick={() => handleOptionSelect('hospitals')}
               className={`
-              flex items-center justify-center gap-2 py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
+              flex items-center justify-center gap-2 py-2 px-3 md:px-6 md:min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
               ${
                 selectedOption !== 'hospitals'
                   ? 'bg-gray-400 text-white '
@@ -4898,7 +4898,7 @@ export default function OpenAIAssistant({
             <button
               onClick={() => handleOptionSelect('phc')}
               className={`
-              flex items-center justify-center gap-2  py-2 px-6 min-w-28 text-sm md:text-base max-w-36 rounded-xl font-medium
+              flex items-center justify-center gap-2  py-2 px-7 md:min-w-28 md:px-6 text-sm md:text-base max-w-36 rounded-xl font-medium
               ${
                 selectedOption !== 'phc'
                   ? 'bg-gray-400 text-white '
