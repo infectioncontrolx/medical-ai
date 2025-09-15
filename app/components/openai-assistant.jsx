@@ -4975,7 +4975,7 @@ export default function OpenAIAssistant({
             <textarea
               disabled={!selectedOption}
               autoFocus
-              className={`max-h-[60px] text-xs md:text-base text-black resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] w-full `}
+              className={`max-h-[60px] text-xs md:text-base placeholder:text-black resize-none order-2 pl-2 h-fit pt-[18px] pr-11 ring-1 ring-transparent outline-none focus:ring-[#2ca9e0] bg-white rounded-[10px] w-full `}
               onChange={handlePromptChange}
               value={
                 answer?.question
@@ -5020,8 +5020,8 @@ export default function OpenAIAssistant({
           </form>
         )}
 
-        <div className="w-full">
-          <p className="text-center text-lg font-bold text-gray-600">
+        <div className="w-full mt-4">
+          <p className="text-center text-lg font-bold text-gray-800">
             {instructions.infectionText[currentLanguage]}
           </p>
         </div>
