@@ -70,6 +70,49 @@ export default function OpenAIAssistant({
     fa: 'برای ادامه انتخاب کنید',
   };
 
+
+  const instructions = {
+    selectButton: {
+    en: 'Please select your organization',
+    bn: 'চালাতে একটি অপশন বেছে নিন',
+    ar: 'تابع باختيار خيار',
+    bm: 'Pilih satu untuk teruskan',
+    ud: 'آگے بڑھنے کے لیے انتخاب کریں',
+    fr: 'Choisissez pour continuer',
+    in: 'Pilih untuk lanjut',
+    tr: 'Devam için seçin',
+    hn: 'जारी रखने के लिए चुनें',
+    ks: 'Chagua ili kuendelea',
+    fa: 'برای ادامه انتخاب کنید',
+  },
+  inputPlaceHolder: {
+    en: "Type your question",
+    bn: "আপনার প্রশ্ন লিখুন",
+    ar: "اكتب استفسارك",
+    bm: "Taip soalan anda",
+    ud: "اپنا سوال لکھیں",
+    fr: "Saisissez votre question",
+    in: "Ketik pertanyaan Anda",
+    tr: "Sorunuzu yazın",
+    hn: "अपना प्रश्न लिखें",
+    ks: "پنُن سوال لِکھیو",
+    fa: "سوال خود را تایپ کنید"
+  },
+  infectionText: {
+    en: "Infection Control Resources",
+    bn: "সংক্রমণ নিয়ন্ত্রণের সম্পদ",
+    ar: "الأدلة والمراجع العلمية في مجال مكافحة العدوى",
+    bm: "Sumber Kawalan Jangkitan",
+    ud: "انفیکشن کنٹرول وسائل",
+    fr: "Ressources pour le contrôle des infections",
+    in: "Sumber daya pengendalian infeksi",
+    tr: "Enfeksiyon Kontrol Kaynakları",
+    hn: "संक्रमण नियंत्रण संसाधन",
+    ks: "انفیکشن کنٹرول وسائل",
+    fa: "منابع کنترل عفونت"
+  }
+  };
+
   const [suggesstions, setSuggestions] = useState([]);
 
   const [suggestionLinks, setSuggestionLinks] = useState(true);
@@ -4718,7 +4761,7 @@ export default function OpenAIAssistant({
     setSuggestionLinks(true);
   };
 
-  const arrived = predefinedQuestions.length > 0;
+  const arrived = predefinedQuestions.length > 0;  
   if (arrived) {
     console.log(predefinedQuestions);
   } else {
@@ -4866,7 +4909,7 @@ export default function OpenAIAssistant({
         {selectedOption ? null : (
           <div className="">
             <p className="flex items-center gap-2">
-              Please select your organization
+              {instructions.selectButton[currentLanguage]}
             </p>
           </div>
         )}
@@ -4977,6 +5020,12 @@ export default function OpenAIAssistant({
             )}
           </form>
         )}
+
+        <div className="w-full">
+                <p className="">
+                    {instructions.infectionText[currentLanguage]}
+                </p>
+        </div>
 
         {suggesstions.length > 0 ? (
           <div className="w-full">
