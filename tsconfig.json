@@ -41,6 +41,6 @@
     "app/[locale]/layout.jsx",
     ".next/types/app/healthcare/info/[id]/page.jsx",
     ".next/types/app/healthcare/info/page.jsx"
-  ],
+, "app/components/data-table.tsx"  ],
   "exclude": ["node_modules"]
 }

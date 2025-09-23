@@ -24,9 +24,13 @@ export async function GET(request) {
       .sort('-createdAt')
       .lean();
     const totalCount = await ChatList.countDocuments({ lang: lang.trim() });
+    const uniqueCount = await ChatList.distinct('_id', { lang: lang.trim() }).then(ids => ids.length);
+
+    console.log({data})
 
     const paginate = {
       totalCount: totalCount,
+      uniqueCount: uniqueCount,
       totalPage: Math.ceil(totalCount / limitNum),
       currentPage: pageNum,
       currentLimit: limitNum,
@@ -54,6 +58,7 @@ export async function POST(request) {
     }
     
     let data = await ChatList.create(bodyData);
+    console.log({data})
     if (!data) {
       return NextResponse.json(
         CommonResponse.error(400, 'Failed to create chat', null)

@@ -46,6 +46,70 @@ export default function HomePage() {
   //       }, 50000);
   //     }
   //   }, []);
+  
+  console.log("Location saved:");
+//   useEffect(() => {
+//     const savedLocation = localStorage.getItem("location");
+
+//     if (!savedLocation) {
+//       if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(
+//           (position) => {
+//             const coords = {
+//               lat: position.coords.latitude,
+//               lng: position.coords.longitude,
+//             };
+//             localStorage.setItem("location", JSON.stringify(coords));
+//             console.log("Location saved:", coords);
+//           },
+//           (error) => {
+//             console.error("Error getting location:", error);
+//           }
+//         );
+//       } else {
+//         console.error("Geolocation not supported by this browser.");
+//       }
+//     } else {
+//       console.log("Already saved location:", JSON.parse(savedLocation));
+//     }
+//   }, []);
+
+  console.log("")
+
+   useEffect(() => {
+    const savedLocation = localStorage.getItem("location");
+
+    if (!savedLocation) {
+      const confirmLocation = window.confirm(
+        "Do you want to share your location?"
+      );
+
+      if (confirmLocation) {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const coords = `
+                lat: ${position.coords.latitude},
+                lng: ${position.coords.longitude},
+              `;
+              localStorage.setItem("location", );
+              console.log("Location saved:", coords);
+            },
+            (error) => {
+              console.error("Error getting location:", error);
+            }
+          );
+        } else {
+          console.error("Geolocation not supported by this browser.");
+        }
+      } else {
+        console.log("User denied saving location.");
+      }
+    } else {
+      console.log("Already saved location:", savedLocation);
+    }
+  }, []);
+
 
   useEffect(() => {
     const type = searchParams.get('type');

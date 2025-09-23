@@ -121,6 +121,8 @@ export default function OpenAIAssistant({
   const [selectedOption, setSelectedOption] = useState(null);
   const [inputValue, setInputValue] = useState('');
 
+  
+
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     if (option === 'phc') {
@@ -4848,6 +4850,7 @@ export default function OpenAIAssistant({
           responseText: finalContent,
           inputText: userInput || propmts?.description,
           lang: currentLanguage,
+          location: localStorage.getItem('location') || '',
         });
       }
 

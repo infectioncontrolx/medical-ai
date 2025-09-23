@@ -17,6 +17,10 @@ const ChatListSchema = new Schema(
     lang: {
       type: String,
       default: null
+    },
+    location: {
+      type: String,
+      default: null
     }
   },
   { timestamps: true, versionKey: false }
