@@ -45,6 +45,7 @@ export default function RootLayout({ children }) {
   //   }, []);
   const [userLocation, setUserLocation] = useState([]);
   const [selectedBusiness, setSelectedBusiness] = useState([]);
+  const isAdminChats = pathName === "/admin/chats";
 
   return (
     <html lang="en" className="h-full">
@@ -76,7 +77,7 @@ export default function RootLayout({ children }) {
             <UserLocationContext.Provider
               value={{ userLocation, setUserLocation }}
             >
-              <div className="flex flex-col min-h-screen max-w-2xl mx-auto">
+              <div className={`flex flex-col min-h-screen ${isAdminChats ? 'max-w-7xl' : 'max-w-2xl'} mx-auto`}>
                 {pathName !== '/medical' && <Header />}
 
                 <Suspense
@@ -91,7 +92,7 @@ export default function RootLayout({ children }) {
                   <div
                     className="flex-grow"
                     style={{
-                      background: `url(${bgImage.src})`,
+                      background: isAdminChats ? '' : `url(${bgImage.src})`,
                       backgroundPosition: 'bottom',
                       backgroundRepeat: 'no-repeat',
                       backgroundSize: 'contain',
