@@ -58,6 +58,9 @@ export async function POST(request) {
       bodyData.lang = 'en';
     }
     
+
+    console.log("bodyData",{bodyData})
+
     let data = await ChatList.create(bodyData);
     console.log({data})
     if (!data) {

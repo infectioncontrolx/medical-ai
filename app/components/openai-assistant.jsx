@@ -15,6 +15,12 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import HealthcareSelector from './HealthcareSelector';
 
+
+const generateUserId = () => {
+  return `user_${crypto.randomUUID()}`; 
+};
+
+
 export default function OpenAIAssistant({
   //   assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
   userInput,
@@ -120,6 +126,19 @@ export default function OpenAIAssistant({
   const [predefinedQuestions, setPredefinedQuestions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
   const [inputValue, setInputValue] = useState('');
+    const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    let storedUserId = localStorage.getItem("currUserId");
+
+    if (!storedUserId) {
+      // Create a new one if not found
+      storedUserId = generateUserId();
+      localStorage.setItem("currUserId", storedUserId);
+    }
+
+    setUserId(storedUserId);
+  }, []);
 
   
 
@@ -4851,6 +4870,7 @@ export default function OpenAIAssistant({
           inputText: userInput || propmts?.description,
           lang: currentLanguage,
           location: localStorage.getItem('location') || '',
+          userId: userId,
         });
       }
 

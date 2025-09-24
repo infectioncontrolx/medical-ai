@@ -8,18 +8,18 @@ import { usePathname } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
 import { Provider } from 'react-redux'; // For Redux
 import 'sweetalert2/src/sweetalert2.scss';
-import { GA_TRACKING_ID, pageview } from '../../../lib/gtag';
-import store from '../../../lib/store';
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
-import WhatsAppButton from '../../components/WhatsAppButton';
-import { SelectedBusinessContext } from '../../context/SelectedBusinessContext';
-import { UserLocationContext } from '../../context/UserLocationContext';
+import { GA_TRACKING_ID, pageview } from '../../lib/gtag';
+import store from '../../lib/store';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import WhatsAppButton from '../components/WhatsAppButton';
+import { SelectedBusinessContext } from '../context/SelectedBusinessContext';
+import { UserLocationContext } from '../context/UserLocationContext';
 const inter = Inter({ subsets: ['latin'], preload: true, display: 'swap' });
 
 import bgImage from '@/public/pattern.png';
 
-export default function SecondLayout({ children }) {
+export default function Layout({ children }) {
   const pathName = usePathname();
 
   useEffect(() => {
