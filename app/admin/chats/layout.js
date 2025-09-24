@@ -19,7 +19,7 @@ const inter = Inter({ subsets: ['latin'], preload: true, display: 'swap' });
 
 import bgImage from '@/public/pattern.png';
 
-export default function RootLayout({ children }) {
+export default function SecondLayout({ children }) {
   const pathName = usePathname();
 
   useEffect(() => {
@@ -47,8 +47,9 @@ export default function RootLayout({ children }) {
   const [selectedBusiness, setSelectedBusiness] = useState([]);
 
   return (
-    <html lang="en" className="h-full">
-      <head>
+    <>
+    {/* <html lang="en" className="h-full"> */}
+      {/* <head>
         <link rel="icon" href="/Favicon.ico" type="icon" />
         <script
           async
@@ -67,8 +68,8 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <GoogleTagManager gtmId="GTM-K6TWCJ6G" />
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <GoogleTagManager gtmId="GTM-K6TWCJ6G" /> */}
+      <div className={`${inter.className} flex flex-col min-h-screen`}>
         <Provider store={store}>
           <SelectedBusinessContext.Provider
             value={{ selectedBusiness, setSelectedBusiness }}
@@ -129,7 +130,8 @@ export default function RootLayout({ children }) {
             </UserLocationContext.Provider>
           </SelectedBusinessContext.Provider>
         </Provider>
-      </body>
-    </html>
+      </div>
+    {/* </html> */}
+    </>
   );
 }
