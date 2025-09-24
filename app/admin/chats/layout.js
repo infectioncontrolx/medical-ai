@@ -48,8 +48,8 @@ export default function SecondLayout({ children }) {
 
   return (
     <>
-    {/* <html lang="en" className="h-full"> */}
-      {/* <head>
+    <html lang="en" className="h-full">
+      <head>
         <link rel="icon" href="/Favicon.ico" type="icon" />
         <script
           async
@@ -68,7 +68,7 @@ export default function SecondLayout({ children }) {
           }}
         />
       </head>
-      <GoogleTagManager gtmId="GTM-K6TWCJ6G" /> */}
+      <GoogleTagManager gtmId="GTM-K6TWCJ6G" />
       <div className={`${inter.className} flex flex-col min-h-screen`}>
         <Provider store={store}>
           <SelectedBusinessContext.Provider
@@ -131,7 +131,7 @@ export default function SecondLayout({ children }) {
           </SelectedBusinessContext.Provider>
         </Provider>
       </div>
-    {/* </html> */}
+    </html>
     </>
   );
 }
