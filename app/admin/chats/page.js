@@ -107,7 +107,7 @@ const Chats = () => {
     const uniqueLanguages = chats?.data ? [...new Set(chats.data.map(chat => chat.lang))].length : 0;
 
     return (
-        <div className="pb-10 pt-10 px-4">
+        <div className="pb-10 pt-5 px-4">
             {/* Header with Stats */}
             <div className="mb-8">
                 <div className="flex items-center justify-between mb-6">
