@@ -48,7 +48,7 @@ export default function SecondLayout({ children }) {
 
   return (
     <>
-    <html lang="en" className="h-full">
+    <html lang="en" className="bg-white absolute left-0 top-0 h-full w-full overflow-hidden overflow-y-auto">
       <head>
         <link rel="icon" href="/Favicon.ico" type="icon" />
         <script
