@@ -1,6 +1,6 @@
 'use client';
 import { Inter } from 'next/font/google';
-import '../../globals.css';
+import '../globals.css';
 // import "./globalicon.css";
 import Loader from '@/components/Shared/Loader';
 import { GoogleTagManager } from '@next/third-parties/google';
