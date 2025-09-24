@@ -179,10 +179,6 @@ const Chats = () => {
 </div>
                     </div>
                 </div>
-
-                <div className="text-sm text-gray-600">
-                    {totalInteractions} interactions found
-                </div>
             </div>
 
             {/* Table */}
