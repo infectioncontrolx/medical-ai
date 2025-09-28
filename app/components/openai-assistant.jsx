@@ -4945,8 +4945,8 @@ export default function OpenAIAssistant({
         )}
 
         {/* Toggle Buttons */}
-        <div className="flex gap-4 md:gap-10  my-4">
-          <div className="flex items-center gap-2">
+        <div className="flex gap-4 md:gap-10  my-4" dir='ltr'>
+          <div className="flex items-center gap-2" dir='ltr' >
             {selectedOption ? null : (
               <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
                 <TfiHandPointRight className="h-6 w-6 text-white" />
@@ -4967,7 +4967,7 @@ export default function OpenAIAssistant({
             </button>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2" dir='ltr' >
             <button
               onClick={() => handleOptionSelect('phc')}
               className={`
