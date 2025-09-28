@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import Modals from './Modals'
 
 export default function Header() {
   const [isAnimating, setIsAnimating] = useState(true);
@@ -32,8 +33,8 @@ export default function Header() {
   );
 
   const appTitle = {
-    en: 'AI Infection Prevention & Control Assistant for Healthcare Professionals',
-    ar: 'المثقف الصحي لضيوف الرحمن',
+    en: 'AI Assistant for Infection Prevention & Control for Healthcare Professionals',
+    ar: 'منصة خبير مكافحة العدوى باستخدام تقنية الذكاء الصناعي',
     bn: 'আল্লাহর অতিথিদের জন্য এআই স্বাস্থ্য সহকারী',
     bm: 'Pembantu Kesihatan Kecerdasan Buatan untuk Tetamu Allah',
     ud: 'اللہ کے مہمانوں کے لیے اے آئی ہیلتھ اسسٹنٹ',
@@ -44,6 +45,31 @@ export default function Header() {
     ks: 'Msaidizi wa Afya wa AI kwa Wageni wa Allah',
     fa: 'دستیار سلامت هوش مصنوعی برای مهمانان الله',
   };
+  const appSubTitle = {
+    en: 'AI Assistant for Infection Prevention & Control for Healthcare Professionals',
+    ar: 'المساعد الذكي في مجال مكافحة العدوى للممارسين الصحيين بالمنشئات الصحية',
+    bn: 'আল্লাহর অতিথিদের জন্য এআই স্বাস্থ্য সহকারী',
+    bm: 'Pembantu Kesihatan Kecerdasan Buatan untuk Tetamu Allah',
+    ud: 'اللہ کے مہمانوں کے لیے اے آئی ہیلتھ اسسٹنٹ',
+    fr: "Assistant Santé AI pour les Invités d'Allah",
+    in: 'Asisten Kesehatan AI untuk Tamu Allah',
+    tr: "Allah'ın Misafirleri için AI Sağlık Asistanı",
+    hn: 'अल्लाह के मेहमानों के लिए एआई स्वास्थ्य सहायक',
+    ks: 'Msaidizi wa Afya wa AI kwa Wageni wa Allah',
+    fa: 'دستیار سلامت هوش مصنوعی برای مهمانان الله',
+  };
+  const appBeta = {
+    en: 'This application is currently in Beta version',
+    ar: 'اصدار تجريبي',
+  };
+
+//   Title:
+// منصة خبير مكافحة العدوى باستخدام تقنية الذكاء الصناعي
+
+// Subtitle: خط اصغر
+// المساعد الذكي في مجال مكافحة العدوى للممارسين الصحيين بالمنشئات الصحية
+
+// ( اصدار تجريبي)
 
   if (router?.id && path.startsWith('/healthcare')) {
     return null;
@@ -76,15 +102,16 @@ export default function Header() {
         </div>
       </div>
       <h1 className=" leading-7 sm:leading-8 my-1 text-[#2ca9e0] px-2 font-bold break-words text-base md:text-lg text-center max-w-[99%] mx-auto">
-        {/* {appTitle[currentLanguage]} */}
-        AI Assistant for Infection Prevention & Control for Healthcare
-        Professionals
+        {appTitle[currentLanguage]}
+        {/* AI Assistant for Infection Prevention & Control for Healthcare
+        Professionals */}
       </h1>
       <h1 className=" leading-7 sm:leading-8 my-1 text-[#ee5f34e0] px-2 font-bold break-words text-sm text-center max-w-[99%] mx-auto">
-        {/* {appTitle[currentLanguage]} */}
-        This application is currently in Beta version
+        {appBeta[currentLanguage]}
+        
       </h1>
-      <div className="px-4 w-full flex justify-center items-center">
+      <div className="px-4 pb-3 w-full flex justify-center items-center">
+            <Modals  />
         {/* <div className="p-3 w-full flex justify-evenly flex-row items-center">
           <Image
             src={logoImg}

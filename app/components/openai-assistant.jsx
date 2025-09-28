@@ -80,7 +80,7 @@ export default function OpenAIAssistant({
     selectButton: {
       en: 'Please select your organization',
       bn: 'চালাতে একটি অপশন বেছে নিন',
-      ar: 'تابع باختيار خيار',
+      ar: 'يرجى اختيار جهة العمل الخاصة بك:',
       bm: 'Pilih satu untuk teruskan',
       ud: 'آگے بڑھنے کے لیے انتخاب کریں',
       fr: 'Choisissez pour continuer',
@@ -115,6 +115,14 @@ export default function OpenAIAssistant({
       hn: 'संक्रमण नियंत्रण संसाधन',
       ks: 'انفیکشن کنٹرول وسائل',
       fa: 'منابع کنترل عفونت',
+    },
+    phcBtn: {
+      en: 'PHC',
+      ar: 'مراكز صحية',
+    },
+    hospitalBtn: {
+      en: 'Hospitals',
+      ar: 'مستشفيات',
     },
   };
 
@@ -4937,7 +4945,7 @@ export default function OpenAIAssistant({
         )}
 
         {/* Toggle Buttons */}
-        <div className="flex space-x-4 md:space-x-10  my-4">
+        <div className="flex gap-4 md:gap-10  my-4">
           <div className="flex items-center gap-2">
             {selectedOption ? null : (
               <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
@@ -4955,7 +4963,7 @@ export default function OpenAIAssistant({
               }
             `}
             >
-              Hospitals
+             {instructions.hospitalBtn[currentLanguage]}
             </button>
           </div>
 
@@ -4971,7 +4979,8 @@ export default function OpenAIAssistant({
               }
             `}
             >
-              PHC
+             {instructions.phcBtn[currentLanguage]}
+              
             </button>
             {selectedOption ? null : (
               <button disabled className="bg-[#2ca9e0] p-2 rounded-full">

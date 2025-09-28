@@ -126,7 +126,7 @@ export default function Modals({ setLang }) {
           viewBox="0 0 24 24"
           strokeWidth={1.2}
           stroke="currentColor"
-          className="w-6 h-6"
+          className="w-6 h-6" 
         >
           <path
             strokeLinecap="round"
@@ -172,7 +172,7 @@ export default function Modals({ setLang }) {
                 <button
                   className="bg-[#dbeefd] m-[2px]  text-[#02B1BF] text-sm font-normal my-2 p-1 px-2 rounded-md  "
                   onClick={() => {
-                    setLang(language.name);
+                    // setLang(language.name);
                     handleLanguageChange(language);
                     setIsOpen(false);
                   }}
@@ -191,7 +191,7 @@ export default function Modals({ setLang }) {
                 <button
                   className="bg-[#dbeefd] m-[2px]  text-[#02B1BF] text-sm font-normal my-2 p-1 px-2 rounded-md  "
                   onClick={() => {
-                    setLang(language.name);
+                    // setLang(language.name);
                     handleLanguageChange(language);
                     setIsOpen(false);
                   }}
