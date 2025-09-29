@@ -46,7 +46,7 @@ export default function Header() {
     fa: 'دستیار سلامت هوش مصنوعی برای مهمانان الله',
   };
   const appSubTitle = {
-    en: 'AI Assistant for Infection Prevention & Control for Healthcare Professionals',
+    en: '',
     ar: 'المساعد الذكي في مجال مكافحة العدوى للممارسين الصحيين بالمنشئات الصحية',
     bn: 'আল্লাহর অতিথিদের জন্য এআই স্বাস্থ্য সহকারী',
     bm: 'Pembantu Kesihatan Kecerdasan Buatan untuk Tetamu Allah',
@@ -106,6 +106,11 @@ export default function Header() {
         {/* AI Assistant for Infection Prevention & Control for Healthcare
         Professionals */}
       </h1>
+      {appSubTitle[currentLanguage] && <h1 className=" leading-7 sm:leading-8 my-1 px-2 font-bold break-words text-sm text-center max-w-[99%] mx-auto">
+        {appSubTitle[currentLanguage]}
+        {/* AI Assistant for Infection Prevention & Control for Healthcare
+        Professionals */}
+      </h1>}
       <h1 className=" leading-7 sm:leading-8 my-1 text-[#ee5f34e0] px-2 font-bold break-words text-sm text-center max-w-[99%] mx-auto">
         {appBeta[currentLanguage]}
         

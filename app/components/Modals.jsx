@@ -119,7 +119,49 @@ export default function Modals({ setLang }) {
 
   return (
     <>
-      <button onClick={openModal}>
+  
+
+        <div className="flex flex-warp gap-2">
+          {languges
+            .filter((item) => item?.code !== currentLanguage)
+            .slice(5, 10)
+            .map((language, index) => (
+              <div key={index} className=" flex justify-center">
+                <button
+                  className="bg-[#dbeefd] m-[2px]  text-[#02B1BF] text-sm font-normal my-2 p-1 px-2 rounded-md  "
+                  onClick={() => {
+                    // setLang(language.name);
+                    handleLanguageChange(language);
+                    setIsOpen(false);
+                  }}
+                >
+                  {language.name}
+                </button>
+              </div>
+            ))}
+        </div>
+        <div className="flex flex-warp gap-2">
+          {languges
+            .filter((item) => item?.code !== currentLanguage)
+            .slice(0, 5)
+            .map((language, index) => (
+              <div key={index} className=" flex justify-center">
+                <button
+                  className="bg-[#dbeefd] m-[2px]  text-[#02B1BF] text-sm font-normal my-2 p-1 px-2 rounded-md  "
+                  onClick={() => {
+                    // setLang(language.name);
+                    handleLanguageChange(language);
+                    setIsOpen(false);
+                  }}
+                >
+                  {language.name}
+                </button>
+              </div>
+            ))}
+        </div>
+
+        {/* needed */}
+      {/* <button onClick={openModal}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -201,7 +243,7 @@ export default function Modals({ setLang }) {
               </div>
             ))}
         </div>
-      </Modal>
+      </Modal> */}
     </>
   );
 }
