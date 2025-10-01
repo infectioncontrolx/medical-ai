@@ -25,13 +25,16 @@ export async function GET(request) {
       .lean();
     const totalCount = await ChatList.countDocuments({ lang: lang.trim() });
     // const uniqueCount = await ChatList.distinct('_id', { lang: lang.trim() }).then(ids => ids.length);// Example: Count unique users for a specific language
-const uniqueCount = await ChatList.distinct('userId', { lang: lang.trim() }).then(ids => ids.length);
-
+// const uniqueCount = await ChatList.distinct('userId').then(ids => ids.length);
+const result = await ChatList.aggregate([
+  { $group: { _id: "$userId" } },
+  { $count: "uniqueUserCount" }
+]);
     console.log({data})
 
     const paginate = {
       totalCount: totalCount,
-      uniqueCount: uniqueCount,
+      uniqueCount: result[0].uniqueUserCount,
       totalPage: Math.ceil(totalCount / limitNum),
       currentPage: pageNum,
       currentLimit: limitNum,
