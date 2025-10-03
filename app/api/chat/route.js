@@ -16,8 +16,6 @@ export async function GET(request) {
 
     const skip = (pageNum - 1) * limitNum;
 
-    // console.log(lang,'lang')
-    // Fetch feedbacks with pagination
     const data = await ChatList.find({ lang: lang.trim() })
       .skip(skip)
       .limit(limitNum)
@@ -25,12 +23,11 @@ export async function GET(request) {
       .lean();
     const totalCount = await ChatList.countDocuments({ lang: lang.trim() });
     // const uniqueCount = await ChatList.distinct('_id', { lang: lang.trim() }).then(ids => ids.length);// Example: Count unique users for a specific language
-// const uniqueCount = await ChatList.distinct('userId').then(ids => ids.length);
-const result = await ChatList.aggregate([
-  { $group: { _id: "$userId" } },
-  { $count: "uniqueUserCount" }
-]);
-    console.log({data})
+    // const uniqueCount = await ChatList.distinct('userId').then(ids => ids.length);
+    const result = await ChatList.aggregate([
+      { $group: { _id: '$userId' } },
+      { $count: 'uniqueUserCount' },
+    ]);
 
     const paginate = {
       totalCount: totalCount,
@@ -46,7 +43,6 @@ const result = await ChatList.aggregate([
       CommonResponse.success(200, 'Chat fetch!', data, paginate)
     );
   } catch (error) {
-    console.log(error);
     return NextResponse.json(
       CommonResponse.error(400, 'Failed to fetch Chat', null)
     );
@@ -60,12 +56,8 @@ export async function POST(request) {
     if (!bodyData?.lang) {
       bodyData.lang = 'en';
     }
-    
-
-    console.log("bodyData",{bodyData})
 
     let data = await ChatList.create(bodyData);
-    console.log({data})
     if (!data) {
       return NextResponse.json(
         CommonResponse.error(400, 'Failed to create chat', null)

@@ -13,7 +13,7 @@ const TransitionSlider = () => {
   const proxyRef = useRef(null);
 
   useEffect(() => {
-    proxyRef.current = document.createElement('div')
+    proxyRef.current = document.createElement('div');
     const overflow = overflowRef.current;
     const viewport = viewportRef.current;
     const wrapper = wrapperRef.current;
@@ -38,20 +38,20 @@ const TransitionSlider = () => {
     const wrapVal = gsap.utils.wrap(0, wrapWidth);
     const wrapProgress = gsap.utils.wrap(0, 1);
 
-    gsap.set([wrapper, viewport], { height: boxHeight, xPercent:-10 });
+    gsap.set([wrapper, viewport], { height: boxHeight, xPercent: -10 });
     gsap.set(boxes, { left: -boxWidth });
 
     // Create boxes and set initial positions
     for (let i = 0; i < images.length; i++) {
-      const src =images[i];
-      // console.log(i,src,'images')
+      const src = images[i];
+
       // const num = document.createElement('div');
       // num.className = 'num';
       // num.innerText = '';
 
       const img = document.createElement('img');
       img.src = src;
-      img.className='object-contain w-auto'
+      img.className = 'object-contain w-auto';
       img.width = imgWidth;
       img.height = imgHeight;
 
@@ -81,7 +81,8 @@ const TransitionSlider = () => {
           } else {
             x = parseInt(x) % wrapWidth;
           }
-          target.style.visibility = x - boxWidth > viewWidth ? 'hidden' : 'visible';
+          target.style.visibility =
+            x - boxWidth > viewWidth ? 'hidden' : 'visible';
           return `${x}px`;
         },
       },

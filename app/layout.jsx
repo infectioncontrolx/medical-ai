@@ -32,7 +32,6 @@ export default function RootLayout({ children }) {
 
   const getUserLocation = () => {
     navigator.geolocation.getCurrentPosition(function (pos) {
-      console.log(pos);
       setUserLocation({
         lat: pos.coords.latitude,
         lng: pos.coords.longitude,
@@ -45,7 +44,7 @@ export default function RootLayout({ children }) {
   //   }, []);
   const [userLocation, setUserLocation] = useState([]);
   const [selectedBusiness, setSelectedBusiness] = useState([]);
-  const isAdminChats = pathName === "/admin/chats";
+  const isAdminChats = pathName === '/admin/chats';
 
   return (
     <html lang="en" className="h-full">
@@ -77,7 +76,11 @@ export default function RootLayout({ children }) {
             <UserLocationContext.Provider
               value={{ userLocation, setUserLocation }}
             >
-              <div className={`flex flex-col min-h-screen ${isAdminChats ? 'max-w-7xl' : 'max-w-2xl'} mx-auto`}>
+              <div
+                className={`flex flex-col min-h-screen ${
+                  isAdminChats ? 'max-w-7xl' : 'max-w-2xl'
+                } mx-auto`}
+              >
                 {pathName !== '/medical' && <Header />}
 
                 <Suspense

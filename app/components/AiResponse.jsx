@@ -1,22 +1,21 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import styles from "./loader.module.css"
-import React, { useEffect, useRef } from "react";
-import { Message, experimental_useAssistant as useAssistant } from "ai/react";
+import { experimental_useAssistant as useAssistant } from 'ai/react';
+import Image from 'next/image';
+import { useEffect, useRef } from 'react';
+import styles from './loader.module.css';
 export default function AiResponse() {
   const { status, messages, submitMessage, input, handleInputChange, error } =
     useAssistant({
-      api: "/api/assistant",
+      api: '/api/assistant',
     });
   const inputRef = useRef(null);
   useEffect(() => {
-    if (status === "awaiting_message") {
+    if (status === 'awaiting_message') {
       inputRef.current?.focus();
     }
   }, [status]);
-  console.log(status);
-  console.log(messages)
+
   return (
     <div>
       <div className="  w-[90%]  my-4 flex flex-col  ">
@@ -26,7 +25,7 @@ export default function AiResponse() {
               <>
                 <div className="flex gap-2 items-center  mb-10      ">
                   <span className="text-3xl flex ">
-                    {m.role === "user" && (
+                    {m.role === 'user' && (
                       <div className="absolute right-10  sm:right-0 flex items-center h-fit mb-4 ">
                         <span
                           className="bg-[#CDE4D6]  rounded-l-lg rounded-tr-xl
@@ -42,7 +41,7 @@ export default function AiResponse() {
                 <div>
                   <div className="flex items-center  justify-start mt-16   w-fit sm:mt-8  pl-4 ">
                     <div className="flex items-center w-fit relative ">
-                      {status === "in_progress" ? (
+                      {status === 'in_progress' ? (
                         <Image
                           src="/Ai.png"
                           alt=""
@@ -51,20 +50,20 @@ export default function AiResponse() {
                           className="h-10 w-10"
                         />
                       ) : (
-                        ""
+                        ''
                       )}
-                      {status === "in_progress" ? (
+                      {status === 'in_progress' ? (
                         <span
                           className={`${styles.loader} absolute left-3 bottom-0`}
                         ></span>
                       ) : (
-                        ""
+                        ''
                       )}
                     </div>
                   </div>
-                  {m.role === "assistant" && (
+                  {m.role === 'assistant' && (
                     <p
-                      style={{ direction: "rtl" }}
+                      style={{ direction: 'rtl' }}
                       className="whitespace-pre-wrap ml-8 w-4/5 bg-white self-center  p-10"
                     >
                       {m.content}
@@ -78,12 +77,12 @@ export default function AiResponse() {
       </div>
       <form
         onSubmit={submitMessage}
-        className=" items-center  sm:w-4/5 lg:w-2/5 
+        className=" items-center  sm:w-4/5 lg:w-2/5
         flex"
       >
         <input
           ref={inputRef}
-          disabled={status !== "awaiting_message"}
+          disabled={status !== 'awaiting_message'}
           className="  p-4  border border-gray-300 bg-white  rounded shadow-xl w-full"
           value={input}
           placeholder="Type your question..."

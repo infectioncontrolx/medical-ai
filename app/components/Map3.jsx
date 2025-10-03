@@ -468,7 +468,6 @@ export default function Home() {
     }
   }, [category, radius, userLocation]);
 
-  console.log(businessList, 'businessList');
   return (
     <div className="px-1 ">
       <GoogleMapView businessList={businessList} />

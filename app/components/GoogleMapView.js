@@ -25,7 +25,6 @@ function GoogleMapView({ businessList }) {
     }
   }, [selectedBusiness]);
 
-  console.log(selectedBusiness,'selectedBusiness')
   return (
     <div>
       <LoadScript

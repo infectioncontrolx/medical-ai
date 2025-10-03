@@ -114,7 +114,6 @@ export default function GuidancePopup({ setIsOpen, isOpen, data }) {
         });
       }
     } catch (error) {
-      console.log(error);
       setIsCreateReq(false);
       Swal.fire({
         title: 'Error!',

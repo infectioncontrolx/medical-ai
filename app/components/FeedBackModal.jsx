@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
-import FeedbackOption from '../../components/Feedback/FeedbackOption.js';
 import Loader from '../../components/Shared/Loader';
 import { isValidArray } from '../../lib/func';
 import API from '../../lib/instance/instance';
@@ -90,9 +89,9 @@ export default function FeedBackModal({ setIsOpen, isOpen }) {
           lang: currentLanguage,
           rating: feedBackData.rating,
           message: feedBackData.message,
-        //   age: feedBackData.age,
-        //   gender: feedBackData.gender,
-        //   nationality: feedBackData.nationality,
+          //   age: feedBackData.age,
+          //   gender: feedBackData.gender,
+          //   nationality: feedBackData.nationality,
         });
 
         Swal.fire({
@@ -114,7 +113,6 @@ export default function FeedBackModal({ setIsOpen, isOpen }) {
         });
       }
     } catch (error) {
-      console.log(error);
       setIsCreateReq(false);
       Swal.fire({
         title: 'Error!',
@@ -128,7 +126,6 @@ export default function FeedBackModal({ setIsOpen, isOpen }) {
     supportedLanguage.find((item) => item?.lang === currentLanguage) ||
     supportedLanguage[0];
 
-  console.log(feedBackData, 'onChanges');
   return (
     <>
       <AnimatePresence>
@@ -188,36 +185,35 @@ export default function FeedBackModal({ setIsOpen, isOpen }) {
                         {isValidArray(selectedLangData?.rating) && (
                           <>
                             <div className="flex gap-3.5 w-full flex-wrap justify-center">
-                                {/* .slice(0, 10) */}
-                                {/* .slice(0, 10) */}
-                            {selectedLangData?.rating
-                                .map((num) => (
-                                  <button
-                                    key={num}
-                                    // className={`w-9 h-9 p-1 rounded-lg font-medium font-inter text-[#525657] ${feedBackData?.rating === num
-                                    //   ? 'bg-[#02B1BF] text-white'
-                                    //   : 'bg-[#DEF2F9]'
-                                    //   }`}
-                                    // className={`w-9 h-9 p-1 rounded-lg font-medium font-inter text-[#525657] ${feedBackData?.rating === num
-                                    //   ? 'bg-[#02B1BF] text-white' 
-                                    //   : 'bg-[#DEF2F9]'
-                                    //   }`}
-                                    className={`w-9 h-9 p-1 rounded-lg font-medium font-inter text-white 
-  ${ [0, 1, 2, 3, 4, 5, 6].includes(num) 
-    ? 'bg-orange-600' 
-    : [7, 8].includes(num) 
+                              {/* .slice(0, 10) */}
+                              {/* .slice(0, 10) */}
+                              {selectedLangData?.rating.map((num) => (
+                                <button
+                                  key={num}
+                                  // className={`w-9 h-9 p-1 rounded-lg font-medium font-inter text-[#525657] ${feedBackData?.rating === num
+                                  //   ? 'bg-[#02B1BF] text-white'
+                                  //   : 'bg-[#DEF2F9]'
+                                  //   }`}
+                                  // className={`w-9 h-9 p-1 rounded-lg font-medium font-inter text-[#525657] ${feedBackData?.rating === num
+                                  //   ? 'bg-[#02B1BF] text-white'
+                                  //   : 'bg-[#DEF2F9]'
+                                  //   }`}
+                                  className={`w-9 h-9 p-1 rounded-lg font-medium font-inter text-white
+  ${
+    [0, 1, 2, 3, 4, 5, 6].includes(num)
+      ? 'bg-orange-600'
+      : [7, 8].includes(num)
       ? 'bg-yellow-400'
       : [9, 10].includes(num)
-        ? 'bg-green-500'
-        : 'bg-[#DEF2F9]'}
-  ${feedBackData?.rating === num 
-    ? 'outline outline-2 outline-black' 
-    : ''}`}
-                                    onClick={() => onChanges('rating', num)}
-                                  >
-                                    {num}
-                                  </button>
-                                ))}
+      ? 'bg-green-500'
+      : 'bg-[#DEF2F9]'
+  }
+  ${feedBackData?.rating === num ? 'outline outline-2 outline-black' : ''}`}
+                                  onClick={() => onChanges('rating', num)}
+                                >
+                                  {num}
+                                </button>
+                              ))}
                               {/* {selectedLangData?.rating
                                 .slice(0, 5)
                                 .map((num) => (

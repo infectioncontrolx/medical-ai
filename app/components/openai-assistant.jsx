@@ -3,7 +3,6 @@
 import { ReactTyped } from 'react-typed';
 
 import API from '@/lib/instance/instance';
-import bgImage from '@/public/pattern.png';
 import Image from 'next/image';
 import { AssistantStream } from 'openai/lib/AssistantStream';
 import { useEffect, useRef, useState } from 'react';
@@ -15,11 +14,9 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import HealthcareSelector from './HealthcareSelector';
 
-
 const generateUserId = () => {
-  return `user_${crypto.randomUUID()}`; 
+  return `user_${crypto.randomUUID()}`;
 };
-
 
 export default function OpenAIAssistant({
   //   assistantId = 'asst_rp7mKcsIJsmKzQETXUIaO3yU',
@@ -134,21 +131,19 @@ export default function OpenAIAssistant({
   const [predefinedQuestions, setPredefinedQuestions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
   const [inputValue, setInputValue] = useState('');
-    const [userId, setUserId] = useState(null);
+  const [userId, setUserId] = useState(null);
 
   useEffect(() => {
-    let storedUserId = localStorage.getItem("currUserId");
+    let storedUserId = localStorage.getItem('currUserId');
 
     if (!storedUserId) {
       // Create a new one if not found
       storedUserId = generateUserId();
-      localStorage.setItem("currUserId", storedUserId);
+      localStorage.setItem('currUserId', storedUserId);
     }
 
     setUserId(storedUserId);
   }, []);
-
-  
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -4758,18 +4753,13 @@ export default function OpenAIAssistant({
     );
     const regex = new RegExp(`${escapedKeyword}`, 'g');
 
-    // 'i' for case-insensitive match
-    // console.log('Input:', input);
-    // console.log('Escaped Keyword:', escapedKeyword);
-    // console.log('Regex:', regex);
-
     return allQuestions.filter((question) => {
       const questionText = decodeURIComponent(
         question?.question[currentLanguage]
       )?.toLowerCase();
-      //   console.log('Question:', question);
+
       const match = regex.test(questionText);
-      //   console.log('Matches:', match);
+
       return match;
     });
   }
@@ -4779,8 +4769,6 @@ export default function OpenAIAssistant({
     setAnswerBox(true);
     setSuggestions([]);
   };
-
-  console.log('bg images', bgImage);
 
   const hanleCloseClick = () => {
     setAnswerBox(false);
@@ -4798,8 +4786,6 @@ export default function OpenAIAssistant({
 
   async function handleSubmitOpenAi(e, propmts) {
     e.preventDefault();
-
-    console.log('prompts', propmts);
 
     // API.post('/api/chat', { inputText: userInput || propmts?.description, lang: currentLanguage });
     if (suggesstions?.length) return;
@@ -4855,8 +4841,6 @@ export default function OpenAIAssistant({
     });
 
     runner.on('messageDone', (message) => {
-      //   console.log(message, 'messagemessagemessage');
-      // get final message content
       const finalContent =
         message.content[0].type == 'text' ? message.content[0].text.value : '';
 
@@ -4899,7 +4883,7 @@ export default function OpenAIAssistant({
   // handles changes to the prompt input field
   function handlePromptChange(e) {
     hanleCloseClick();
-    // console.log(window.gtag)
+
     // Send event to Google Analytics
     if (window?.gtag) {
       window.gtag('event', 'chat_input', {
@@ -4945,8 +4929,8 @@ export default function OpenAIAssistant({
         )}
 
         {/* Toggle Buttons */}
-        <div className="flex gap-4 md:gap-10  my-4" dir='ltr'>
-          <div className="flex items-center gap-2" dir='ltr' >
+        <div className="flex gap-4 md:gap-10  my-4" dir="ltr">
+          <div className="flex items-center gap-2" dir="ltr">
             {selectedOption ? null : (
               <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
                 <TfiHandPointRight className="h-6 w-6 text-white" />
@@ -4963,11 +4947,11 @@ export default function OpenAIAssistant({
               }
             `}
             >
-             {instructions.hospitalBtn[currentLanguage]}
+              {instructions.hospitalBtn[currentLanguage]}
             </button>
           </div>
 
-          <div className="flex items-center gap-2" dir='ltr' >
+          <div className="flex items-center gap-2" dir="ltr">
             <button
               onClick={() => handleOptionSelect('phc')}
               className={`
@@ -4979,8 +4963,7 @@ export default function OpenAIAssistant({
               }
             `}
             >
-             {instructions.phcBtn[currentLanguage]}
-              
+              {instructions.phcBtn[currentLanguage]}
             </button>
             {selectedOption ? null : (
               <button disabled className="bg-[#2ca9e0] p-2 rounded-full">
@@ -5168,7 +5151,6 @@ export function OpenAIAssistantMessage({ message }) {
           isRtl ? 'text-right' : 'text-left'
         } overflow-auto openai-text relative`}
       >
-        {/* {console.log(message?.content)} */}
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
@@ -5236,7 +5218,7 @@ export function OpenAIAssistantMessage({ message }) {
         >
           {message?.content}
         </ReactMarkdown>
-        {/* {console.log('I am from answer', )} */}
+
         {/* <MarkdownRenderer markdown={message?message?.content.content} /> */}
         {/* <Markdown remarkPlugins={[remarkGfm]}>
 

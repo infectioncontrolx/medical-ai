@@ -46,42 +46,39 @@ export default function HomePage() {
   //       }, 50000);
   //     }
   //   }, []);
-  
-  console.log("Location saved:");
-//   useEffect(() => {
-//     const savedLocation = localStorage.getItem("location");
 
-//     if (!savedLocation) {
-//       if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(
-//           (position) => {
-//             const coords = {
-//               lat: position.coords.latitude,
-//               lng: position.coords.longitude,
-//             };
-//             localStorage.setItem("location", JSON.stringify(coords));
-//             console.log("Location saved:", coords);
-//           },
-//           (error) => {
-//             console.error("Error getting location:", error);
-//           }
-//         );
-//       } else {
-//         console.error("Geolocation not supported by this browser.");
-//       }
-//     } else {
-//       console.log("Already saved location:", JSON.parse(savedLocation));
-//     }
-//   }, []);
+  //   useEffect(() => {
+  //     const savedLocation = localStorage.getItem("location");
 
-  console.log("")
+  //     if (!savedLocation) {
+  //       if (navigator.geolocation) {
+  //         navigator.geolocation.getCurrentPosition(
+  //           (position) => {
+  //             const coords = {
+  //               lat: position.coords.latitude,
+  //               lng: position.coords.longitude,
+  //             };
+  //             localStorage.setItem("location", JSON.stringify(coords));
+  //
+  //           },
+  //           (error) => {
+  //             console.error("Error getting location:", error);
+  //           }
+  //         );
+  //       } else {
+  //         console.error("Geolocation not supported by this browser.");
+  //       }
+  //     } else {
+  //
+  //     }
+  //   }, []);
 
-   useEffect(() => {
-    const savedLocation = localStorage.getItem("location");
+  useEffect(() => {
+    const savedLocation = localStorage.getItem('location');
 
     if (!savedLocation) {
       const confirmLocation = window.confirm(
-        "Do you want to share your location?"
+        'Do you want to share your location?'
       );
 
       if (confirmLocation) {
@@ -92,24 +89,22 @@ export default function HomePage() {
                 lat: ${position.coords.latitude},
                 lng: ${position.coords.longitude},
               `;
-              localStorage.setItem("location", );
-              console.log("Location saved:", coords);
+              localStorage.setItem('location');
             },
             (error) => {
-              console.error("Error getting location:", error);
+              console.error('Error getting location:', error);
             }
           );
         } else {
-          console.error("Geolocation not supported by this browser.");
+          console.error('Geolocation not supported by this browser.');
         }
       } else {
-        console.log("User denied saving location.");
+        console.log('User denied saving location.');
       }
     } else {
-      console.log("Already saved location:", savedLocation);
+      console.log('Already saved location:', savedLocation);
     }
   }, []);
-
 
   useEffect(() => {
     const type = searchParams.get('type');
@@ -428,7 +423,7 @@ export default function HomePage() {
       {/* <HealthcareSelector handleSelectQuestion={handleSelectQuestion} /> */}
       <div className="w-[97%] flex items-center justify-center rounded-lg">
         <OpenAIAssistant
-        //   assistantId="asst_rp7mKcsIJsmKzQETXUIaO3yUuuu"
+          //   assistantId="asst_rp7mKcsIJsmKzQETXUIaO3yUuuu"
           userInput={userInput}
           setUserInput={setUserInput}
         />

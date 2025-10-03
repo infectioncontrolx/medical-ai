@@ -1,18 +1,18 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { ReactTyped } from "react-typed";
+'use client';
+import { useEffect, useState } from 'react';
+import { ReactTyped } from 'react-typed';
 
 export default function PredefinedResponse({ questions }) {
   const [suggesstions, setSuggestions] = useState([]);
-  const [userInput, setUserInput] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [userInput, setUserInput] = useState('');
+  const [answer, setAnswer] = useState('');
   const [answerBox, setAnswerBox] = useState(false);
   const [suggestionLinks, setSuggestionLinks] = useState(true);
   const questionsToAsk = [];
   questions.forEach((element) => {
     questionsToAsk.push(element.question);
   });
-  console.log(questionsToAsk);
+
   function filterSuggestions(input, allQuestions) {
     if (!allQuestions) {
       return [];
@@ -26,7 +26,6 @@ export default function PredefinedResponse({ questions }) {
 
     setSuggestions(filtered);
   }, [userInput]);
-  console.log(suggesstions);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,7 +41,7 @@ export default function PredefinedResponse({ questions }) {
   };
   const hanleCloseClick = () => {
     setAnswerBox(false);
-    setUserInput("");
+    setUserInput('');
     setSuggestionLinks(true);
   };
   return (
@@ -66,13 +65,13 @@ export default function PredefinedResponse({ questions }) {
         </button>
       </form>
       <div className=" suggestions  w-full  my-8  ">
-        {" "}
+        {' '}
         {userInput && (
           <ul
             className={`${
               suggestionLinks
-                ? " w-full gap-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  "
-                : "hidden"
+                ? ' w-full gap-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  '
+                : 'hidden'
             }`}
           >
             {suggesstions.length > 0 ? (
@@ -95,7 +94,9 @@ export default function PredefinedResponse({ questions }) {
         )}
       </div>
 
-      <div className={`${answerBox ? "block" : "hidden"} relative  bg-gray-100 "`}>
+      <div
+        className={`${answerBox ? 'block' : 'hidden'} relative  bg-gray-100 "`}
+      >
         <span
           className=" h-4 flex items-center justify-center w-4 absolute  text-blacl font-bold  right-1 top-1     rounded-lg cursor-pointer "
           onClick={hanleCloseClick}
@@ -103,7 +104,7 @@ export default function PredefinedResponse({ questions }) {
           x
         </span>
         <span className="block text-2xl">
-          🤵{" "}
+          🤵{' '}
           <span className="bg-[#CDE4D6] text-lg px-4 py-2 rounded-lg">
             {userInput}
           </span>

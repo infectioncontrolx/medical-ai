@@ -11,28 +11,31 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     let pageNum = parseInt(searchParams.get('page')) || 1;
     let limitNum = parseInt(searchParams.get('limit')) || 10;
-    let lang = searchParams.get('lang') || "";
-    
+    let lang = searchParams.get('lang') || '';
+
     const skip = (pageNum - 1) * limitNum;
 
     // Fetch feedbacks with pagination
-    const data = await FeedBacks.find({lang:lang.trim()}).skip(skip).limit(limitNum).sort('-createdAt').lean();
-    const totalCount = await FeedBacks.countDocuments({lang:lang.trim()});
+    const data = await FeedBacks.find({ lang: lang.trim() })
+      .skip(skip)
+      .limit(limitNum)
+      .sort('-createdAt')
+      .lean();
+    const totalCount = await FeedBacks.countDocuments({ lang: lang.trim() });
 
     const paginate = {
       totalCount: totalCount,
       totalPage: Math.ceil(totalCount / limitNum),
       currentPage: pageNum,
       currentLimit: limitNum,
-      hasNextPage: data.length === limitNum
+      hasNextPage: data.length === limitNum,
     };
 
     // Include pagination data in the response
     return NextResponse.json(
-      CommonResponse.success(200, 'Feedback fetch!', data,paginate)
+      CommonResponse.success(200, 'Feedback fetch!', data, paginate)
     );
   } catch (error) {
-    console.log(error);
     return NextResponse.json(
       CommonResponse.error(400, 'Failed to fetch feedback', null)
     );

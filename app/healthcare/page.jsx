@@ -16,30 +16,29 @@ import { useSelector } from 'react-redux';
 import { EffectCards } from 'swiper/modules';
 import { dataCards } from '../data/dataCards';
 
-
 export default function HealthCare() {
-  const [isLoading,setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
   const [currentSwiper, setCurrentSwiper] = useState(0);
   const currentLanguage = useSelector(
     (state) => state.language.currentLanguage
   );
   if (!dataCards?.length) return null;
 
-  useEffect(()=>{
-    setIsLoading(false)
-  },[])
-
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
   return (
     <div className="  px-2 gap-4 flex  flex-col w-full items-center justify-center relative">
-
-     { isLoading&&<div className=' w-full h-screen flex items-center justify-center relative'>
-      
-     <div className='absolute top-[20%] flex items-center justify-center'>
-     <Loader/>
-     </div>
-      </div>}
-      {!isLoading&&isValidArray(dataCards) &&
+      {isLoading && (
+        <div className=" w-full h-screen flex items-center justify-center relative">
+          <div className="absolute top-[20%] flex items-center justify-center">
+            <Loader />
+          </div>
+        </div>
+      )}
+      {!isLoading &&
+        isValidArray(dataCards) &&
         dataCards.map((item, index) => (
           <div
             key={item.topic}
@@ -64,14 +63,15 @@ export default function HealthCare() {
                     key={index}
                     className="flex justify-center items-center w-full  ring-[3px] ring-neutral-200 min-h-[440px] "
                   >
-
-                    {console.log(value,'value')}
                     <button
-                   onClick={()=>{
-                    location.replace(`/healthcare/${
-                      value?.title[currentLanguage]?.replace(/\s+/g, '-')
-                    }?select=${currentSwiper}&lang=${currentLanguage}`)
-                   }}
+                      onClick={() => {
+                        location.replace(
+                          `/healthcare/${value?.title[currentLanguage]?.replace(
+                            /\s+/g,
+                            '-'
+                          )}?select=${currentSwiper}&lang=${currentLanguage}`
+                        );
+                      }}
                       className="w-full rounded-[18px] relative h-full"
                     >
                       <img
